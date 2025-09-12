@@ -1,0 +1,22 @@
+{
+  "name": "Looker",
+  "version": "0.1.0",
+  "description": "Connect to Looker",
+  "mcpServers": {
+    "looker": {
+      "command": "${extensionPath}${/}toolbox",
+      "args": [
+        "--prebuilt",
+        "looker",
+        "--stdio"
+      ],
+      "env": {
+        "LOOKER_BASE_URL": "${LOOKER_BASE_URL}",
+        "LOOKER_CLIENT_ID": "${LOOKER_CLIENT_ID}",
+        "LOOKER_CLIENT_SECRET": "${LOOKER_CLIENT_SECRET}",
+        "LOOKER_VERIFY_SSL": "${LOOKER_VERIFY_SSL}"
+      }
+    }
+  },
+  "contextFileName": "LOOKER.md"
+}
