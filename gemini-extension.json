@@ -1,7 +1,7 @@
 {
   "name": "Looker",
   "version": "0.1.0",
-  "description": "Connect to Looker",
+  "description": "Connect and interact with Looker",
   "mcpServers": {
     "looker": {
       "command": "${extensionPath}${/}toolbox",
