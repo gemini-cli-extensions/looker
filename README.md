@@ -1,5 +1,8 @@
 # Gemini CLI Extension - Looker
 
+> [!NOTE]
+> This extension is currently in beta, and may see breaking changes until the first stable release (v1.0).
+
 This Gemini CLI extension provides a set of tools to interact with [Looker](https://cloud.google.com/looker/docs) instances. It allows you to manage your Looks, dashboards, and explores directly from the [Gemini CLI](https://google-gemini.github.io/gemini-cli/), using natural language prompts.
 
 Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md).
@@ -14,7 +17,7 @@ Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini
 
 Before you begin, ensure you have the following:
 
-*   [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed.
+*   [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version +v0.6.0.
 *   A Looker instance with API access enabled.
 
 ## Installation
@@ -30,7 +33,9 @@ gemini extensions install github.com/gemini-cli-extensions/looker
 You will need a Looker Client Id and Client Secret. These can be obtained by
 following the directions at [Looker API authentication](https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk). If you
 don't have access to the Admin pages of the Looker system, you will need to ask
-your administrator to get the Id and Secret for you.
+your administrator to get the Id and Secret for you. 
+
+Set the following environment variables before starting the Gemini CLI:
 
 *   `LOOKER_BASE_URL`: The base URL of your Looker instance like
     `https://looker.example.com`. In some cases you may need to add `:19999` to
