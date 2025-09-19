@@ -1,9 +1,9 @@
 {
-  "name": "Looker",
-  "version": "0.1.0",
-  "description": "Connect and interact with Looker",
+  "name": "looker",
+  "version": "0.0.0",
+  "description": "Connect to Looker",
   "mcpServers": {
-    "looker": {
+    "Looker": {
       "command": "${extensionPath}${/}toolbox",
       "args": [
         "--prebuilt",
