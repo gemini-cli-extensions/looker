@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Connect to Looker",
   "mcpServers": {
-    "Looker": {
+    "looker": {
       "command": "${extensionPath}${/}toolbox",
       "args": [
         "--prebuilt",
