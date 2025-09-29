@@ -4,11 +4,13 @@ build content like dashboards and saved looks.
 
 ---
 
-# Looker Extension
+# Setup
 
-This document provides instructions for the Gemini agent to assist users with the Looker extension.
+## Required Gemini CLI Version
 
-## Setup
+To install this extension, the Gemini CLI version must be v0.6.0 or above. The version can be found by running: `gemini --version`.
+
+## Looker MCP Server
 
 This section covers connecting to a Looker instance.
 
