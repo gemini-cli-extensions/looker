@@ -6,19 +6,27 @@
 This Gemini CLI extension provides a set of tools to interact with [Looker](https://cloud.google.com/looker/docs) instances. It allows you to manage your Looks, dashboards, and explores directly from the [Gemini CLI](https://google-gemini.github.io/gemini-cli/), using natural language prompts.
 
 Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/index.md).
+> [!IMPORTANT]
+> **We Want Your Feedback!**
+> Please share your thoughts with us by filling out our feedback [form][form]. 
+> Your input is invaluable and helps us improve the project for everyone.
+
+[form]: https://docs.google.com/forms/d/e/1FAIpQLSfEGmLR46iipyNTgwTmIDJqzkAwDPXxbocpXpUbHXydiN1RTw/viewform?usp=pp_url&entry.157487=looker
 
 ## Why Use the Looker Extension?
 
-*   **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts.
-*   **Connect to Looker:** Securely connect to your Looker instances.
-*   **Natural Language Usage:** Stop wrestling with complex commands. List models, explores, and dimensions, and run Looks and queries by describing what you want in plain English.
+* **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts.
+* **Connect to Looker:** Securely connect to your Looker instances.
+* **Natural Language Usage:** Stop wrestling with complex commands. List models, explores, and dimensions, and run Looks and queries by describing what you want in plain English.
+
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-*   [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
-*   A Looker instance with API access enabled.
+* [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
+* Setup Gemini CLI [Authentication](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#-authentication-options).
+* A Looker instance with API access enabled.
 
 ## Getting Started
 
@@ -37,19 +45,19 @@ following the directions at [Looker API authentication](https://cloud.google.com
 don't have access to the Admin pages of the Looker system, you will need to ask
 your administrator to get the Id and Secret for you.
 
-Set the following environment variables before starting the Gemini CLI:
+Set the following environment variables before starting the Gemini CLI. These variables can be loaded from a `.env` file.
 
-*   `LOOKER_BASE_URL`: The base URL of your Looker instance like
+* `LOOKER_BASE_URL`: The base URL of your Looker instance like
     `https://looker.example.com`. In some cases you may need to add `:19999` to
     the URL as well.
-*   `LOOKER_CLIENT_ID`: The Looker API client ID.
-*   `LOOKER_CLIENT_SECRET`: The Looker API client secret.
-*   `LOOKER_VERIFY_SSL`: (Optional) Whether to verify SSL certificates. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show models that are
+* `LOOKER_CLIENT_ID`: The Looker API client ID.
+* `LOOKER_CLIENT_SECRET`: The Looker API client secret.
+* `LOOKER_VERIFY_SSL`: (Optional) Whether to verify SSL certificates. Defaults to `true`.
+* `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show models that are
     hidden in the UI. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show explores that are
+* `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show explores that are
     hidden in the UI. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show fields that are
+* `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show fields that are
     hidden in the UI. Defaults to `true`.
 
 
