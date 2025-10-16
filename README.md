@@ -48,7 +48,7 @@ your administrator to get the Id and Secret for you.
 Set the following environment variables before starting the Gemini CLI. These variables can be loaded from a `.env` file.
 
 ```bash
-export LOOKER_BASE_URL="<your-looker-instance-url>"
+export LOOKER_BASE_URL="<your-looker-instance-url>"  # e.g. `https://looker.example.com`. You may need to add the port, i.e. `:19999`.
 export LOOKER_CLIENT_ID="<your-looker-client-id>"
 export LOOKER_CLIENT_SECRET="<your-looker-client-secret>"
 export LOOKER_VERIFY_SSL="true" # Optional, defaults to true
@@ -56,7 +56,6 @@ export LOOKER_SHOW_HIDDEN_MODELS="true" # Optional, defaults to true
 export LOOKER_SHOW_HIDDEN_EXPLORES="true" # Optional, defaults to true
 export LOOKER_SHOW_HIDDEN_FIELDS="true" # Optional, defaults to true
 ```
-
 
 ### Start Gemini CLI
 
