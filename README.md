@@ -1,50 +1,73 @@
 # Gemini CLI Extension - Looker
 
+> [!NOTE]
+> This extension is currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
+
 This Gemini CLI extension provides a set of tools to interact with [Looker](https://cloud.google.com/looker/docs) instances. It allows you to manage your Looks, dashboards, and explores directly from the [Gemini CLI](https://google-gemini.github.io/gemini-cli/), using natural language prompts.
 
-Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extension.md).
+Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/index.md).
+> [!IMPORTANT]
+> **We Want Your Feedback!**
+> Please share your thoughts with us by filling out our feedback [form][form]. 
+> Your input is invaluable and helps us improve the project for everyone.
+
+[form]: https://docs.google.com/forms/d/e/1FAIpQLSfEGmLR46iipyNTgwTmIDJqzkAwDPXxbocpXpUbHXydiN1RTw/viewform?usp=pp_url&entry.157487=looker
 
 ## Why Use the Looker Extension?
 
-*   **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts.
-*   **Connect to Looker:** Securely connect to your Looker instances.
-*   **Natural Language Usage:** Stop wrestling with complex commands. List models, explores, and dimensions, and run Looks and queries by describing what you want in plain English. 
+* **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts.
+* **Connect to Looker:** Securely connect to your Looker instances.
+* **Natural Language Usage:** Stop wrestling with complex commands. List models, explores, and dimensions, and run Looks and queries by describing what you want in plain English.
+
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-*   [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed.
-*   A Looker instance with API access enabled.
+* [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
+* Setup Gemini CLI [Authentication](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#-authentication-options).
+* A Looker instance with API access enabled.
 
-## Installation
+## Getting Started
+
+### Installation
 
 To install the extension, use the command:
 
 ```bash
-gemini extensions install github.com/gemini-cli-extensions/looker
+gemini extensions install https://github.com/gemini-cli-extensions/looker
 ```
 
-## Configuration
+### Configuration
 
 You will need a Looker Client Id and Client Secret. These can be obtained by
 following the directions at [Looker API authentication](https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk). If you
 don't have access to the Admin pages of the Looker system, you will need to ask
 your administrator to get the Id and Secret for you.
 
-*   `LOOKER_BASE_URL`: The base URL of your Looker instance like
+Set the following environment variables before starting the Gemini CLI. These variables can be loaded from a `.env` file.
+
+* `LOOKER_BASE_URL`: The base URL of your Looker instance like
     `https://looker.example.com`. In some cases you may need to add `:19999` to
     the URL as well.
-*   `LOOKER_CLIENT_ID`: The Looker API client ID.
-*   `LOOKER_CLIENT_SECRET`: The Looker API client secret.
-*   `LOOKER_VERIFY_SSL`: (Optional) Whether to verify SSL certificates. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show models that are
+* `LOOKER_CLIENT_ID`: The Looker API client ID.
+* `LOOKER_CLIENT_SECRET`: The Looker API client secret.
+* `LOOKER_VERIFY_SSL`: (Optional) Whether to verify SSL certificates. Defaults to `true`.
+* `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show models that are
     hidden in the UI. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show explores that are
+* `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show explores that are
     hidden in the UI. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show fields that are
+* `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show fields that are
     hidden in the UI. Defaults to `true`.
 
+
+### Start Gemini CLI
+
+To start the Gemini CLI, use the following command:
+
+```bash
+gemini
+```
 
 ## Usage
 You can ask questions and give commands such as these:
@@ -62,21 +85,21 @@ You can ask questions and give commands such as these:
 
 ## Supported Tools
 
-* `get_models`: Use this tool to list the LookML models in Looker.  
-* `get_explores`: Use this tool to list the explores in a given model.  
-* `get_dimensions`: Use this tool to list the dimensions in a given explore.  
-* `get_measures`: Use this tool to list the measures in a given explore.  
-* `get_filters`: Use this tool to list the filters in a given explore.  
-* `get_parameters`: Use this tool to list the parameters in a given explore.  
-* `query`: Use this tool to run a query and return the data.  
-* `query_sql`: Use this tool to return the SQL generated by Looker for a query.  
-* `query_url`: Use this tool to return a link to the query in Looker for further exploration.  
-* `get_looks`: Use this tool to return the saved Looks that match a title or description.  
-* `run_look`: Use this tool to run a saved Look and return the data.  
-* `make_look`: Use this tool to create a saved Look in Looker and return the URL.  
-* `get_dashboards`: Use this tool to return the saved dashboards that match a title or description.  
-* `make_dashboard`: Use this tool to create a saved dashboard in Looker and return the URL.  
-* `add_dashboard_element`: Use this tool to add a tile to a dashboard.  
+* `get_models`: Use this tool to list the LookML models in Looker.
+* `get_explores`: Use this tool to list the explores in a given model.
+* `get_dimensions`: Use this tool to list the dimensions in a given explore.
+* `get_measures`: Use this tool to list the measures in a given explore.
+* `get_filters`: Use this tool to list the filters in a given explore.
+* `get_parameters`: Use this tool to list the parameters in a given explore.
+* `query`: Use this tool to run a query and return the data.
+* `query_sql`: Use this tool to return the SQL generated by Looker for a query.
+* `query_url`: Use this tool to return a link to the query in Looker for further exploration.
+* `get_looks`: Use this tool to return the saved Looks that match a title or description.
+* `run_look`: Use this tool to run a saved Look and return the data.
+* `make_look`: Use this tool to create a saved Look in Looker and return the URL.
+* `get_dashboards`: Use this tool to return the saved dashboards that match a title or description.
+* `make_dashboard`: Use this tool to create a saved dashboard in Looker and return the URL.
+* `add_dashboard_element`: Use this tool to add a tile to a dashboard.
 
 ## Additional Extensions
 
@@ -84,4 +107,11 @@ Find additional extensions to support your entire software development lifecycle
 
 ## Troubleshooting
 
-* "cannot execute binary file": Ensure the correct binary for your OS/Architecture has been downloaded. See [Installing the server](https://googleapis.github.io/genai-toolbox/getting-started/introduction/#installing-the-server) for more information.
+Use `gemini --debug` to enable debugging.
+
+Common issues:
+
+* "failed to find default credentials: google: could not find default credentials.": Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment. See [Set up Application Default Credentials](https://cloud.google.com/docs/authentication/external/set-up-adc) for more information.
+* "✖ Error during discovery for server: MCP error -32000: Connection closed": The database connection has not been established. Ensure your configuration is set via environment variables.
+* "✖ MCP ERROR: Error: spawn /Users/USER/.gemini/extensions/cloud-sql-sqlserver/toolbox ENOENT": The Toolbox binary did not download correctly. Ensure you are using Gemini CLI v0.6.0+.
+* "cannot execute binary file": The Toolbox binary did not download correctly. Ensure the correct binary for your OS/Architecture has been downloaded. See [Installing the server](https://googleapis.github.io/genai-toolbox/getting-started/introduction/#installing-the-server) for more information.
