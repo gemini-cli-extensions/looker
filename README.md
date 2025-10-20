@@ -96,6 +96,18 @@ You can ask questions and give commands such as these:
 * `get_dashboards`: Use this tool to return the saved dashboards that match a title or description.
 * `make_dashboard`: Use this tool to create a saved dashboard in Looker and return the URL.
 * `add_dashboard_element`: Use this tool to add a tile to a dashboard.
+* `health_pulse`: Use this tool to perform a health check on a Looker instance.
+* `health_analyze`: Use this tool to analyse the usage of projects, models, and
+  explores in Looker.
+* `health_vacuum`: Use this tool to suggest LookML objects that might be
+  removed.
+* `dev_mode`: Use this tool to turn dev mode on or off.
+* `get_projects`: Use this tool to retrieve the LookML projects in a Looker instance.
+* `get_project_files`: Use this tool to retrieve the LookML files in a project.
+* `get_project_file`: Use this tool to retrieve the content of a LookML file.
+* `update_project_file`: Use this tool to modify a LookML file.
+* `create_project_file`: Use this tool to create a LookML file.
+* `delete_project_file`: Use this tool to delete a LookML file.
 
 ## Additional Extensions
 

@@ -56,4 +56,8 @@ visualizations. Use this for creating looks and dashboards as well.
 
 A good dashboard usually has between 6 and 12 elements.
 
+## Information for Authoring LookML
 
+The `create_project_file`, `update_project_file`, and `delete_project_file`
+tools only work when `dev_mode` has been set to true. The user must go to Looker
+and confirm the changes before they can be commited and sent to production.
