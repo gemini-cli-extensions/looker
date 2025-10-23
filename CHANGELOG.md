@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.3](https://github.com/gemini-cli-extensions/looker/compare/0.1.2...0.1.3) (2025-10-23)
+
+
+### Features
+
+* **tools/looker:** Tools to allow the agent to retrieve, create, modify, and delete LookML project files. ([#&[#8203](https://github.com/gemini-cli-extensions/looker/issues/8203);1673](https://redirect.github.com/googleapis/genai-toolbox/issues/1673)) ([089081f](https://redirect.github.com/googleapis/genai-toolbox/commit/089081feb0e32f9eb65d00df5987392d413a4081)) ([a7bf223](https://github.com/gemini-cli-extensions/looker/commit/a7bf223b5b91ae2833b75239ba0cc0a3d0b91ba4))
+* Support `allowedValues`, `escape`, `minValue` and `maxValue` for parameters ([#&[#8203](https://github.com/gemini-cli-extensions/looker/issues/8203);1770](https://redirect.github.com/googleapis/genai-toolbox/issues/1770)) ([eaf7740](https://redirect.github.com/googleapis/genai-toolbox/commit/eaf77406fd386c12315d67eb685dc69e0415c516)) ([a7bf223](https://github.com/gemini-cli-extensions/looker/commit/a7bf223b5b91ae2833b75239ba0cc0a3d0b91ba4))
+
+
+### Bug Fixes
+
+* **tools/looker:** Looker file content calls should not use url.QueryEscape ([#&[#8203](https://github.com/gemini-cli-extensions/looker/issues/8203);1758](https://redirect.github.com/googleapis/genai-toolbox/issues/1758)) ([336de1b](https://redirect.github.com/googleapis/genai-toolbox/commit/336de1bd04b869d322c0fd1f4667eb652159d791)) ([a7bf223](https://github.com/gemini-cli-extensions/looker/commit/a7bf223b5b91ae2833b75239ba0cc0a3d0b91ba4))
+
 ## [0.1.2](https://github.com/gemini-cli-extensions/looker/compare/0.1.1...0.1.2) (2025-10-14)
 
 
