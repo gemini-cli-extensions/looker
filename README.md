@@ -81,7 +81,7 @@ You can ask questions and give commands such as these:
 
 ## Supported Tools
 
-The full tool list is available in the [Prebuilt Tools Reference](../../reference/prebuilt-tools/#looker](https://googleapis.github.io/genai-toolbox/reference/prebuilt-tools/#looker).
+The full tool list is available in the [Prebuilt Tools Reference](https://googleapis.github.io/genai-toolbox/reference/prebuilt-tools/#looker).
 
 The following tools are available to the LLM:
 
