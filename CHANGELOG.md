@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.4](https://github.com/gemini-cli-extensions/looker/compare/0.1.3...0.1.4) (2025-11-07)
+
+
+### Features
+
+* **tools/looker-run-dashboard:** New `run_dashboard` tool ([genai-toolbox#​1858](https://redirect.github.com/googleapis/genai-toolbox/issues/1858)) ([30857c2](https://redirect.github.com/googleapis/genai-toolbox/commit/30857c2294bb14961d3be49e2c368c69ecf844ec)) ([d39e5d3](https://github.com/gemini-cli-extensions/looker/commit/d39e5d3a1d5d21190734a6f909ffba7cce49ed36))
+* **tools/looker-run-look:** Modify run\_look to show query origin ([genai-toolbox#​1860](https://redirect.github.com/googleapis/genai-toolbox/issues/1860)) ([991e539](https://redirect.github.com/googleapis/genai-toolbox/commit/991e539f9c7978fa618ada3179a0b656c33ff501)) ([d39e5d3](https://github.com/gemini-cli-extensions/looker/commit/d39e5d3a1d5d21190734a6f909ffba7cce49ed36))
+* **tools/looker:** Tools to retrieve the connections, schemas, databases, and column metadata from a looker system. ([genai-toolbox#​1804](https://redirect.github.com/googleapis/genai-toolbox/issues/1804)) ([d7d1b03](https://redirect.github.com/googleapis/genai-toolbox/commit/d7d1b03f3b746ed748d67f67e833457d55c846ab)) ([d39e5d3](https://github.com/gemini-cli-extensions/looker/commit/d39e5d3a1d5d21190734a6f909ffba7cce49ed36))
+
+
+### Bug Fixes
+
+* Instructions to quote filters that include commas ([genai-toolbox#​1794](https://redirect.github.com/googleapis/genai-toolbox/issues/1794)) ([4b01720](https://redirect.github.com/googleapis/genai-toolbox/commit/4b0172083c0dd4c71098d4e0ab5fa0b16ea0d830)) ([d39e5d3](https://github.com/gemini-cli-extensions/looker/commit/d39e5d3a1d5d21190734a6f909ffba7cce49ed36))
+
 ## [0.1.3](https://github.com/gemini-cli-extensions/looker/compare/0.1.2...0.1.3) (2025-10-23)
 
 
