@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/gemini-cli-extensions/looker/compare/0.1.5...0.1.6) (2025-11-20)
+
+
+### Features
+
+* **deps:** update dependency googleapis/genai-toolbox to v0.21.0 ([#67](https://github.com/gemini-cli-extensions/looker/issues/67)) ([4bfb3ae](https://github.com/gemini-cli-extensions/looker/commit/4bfb3ae8d98ed3977f20809c5cc7bf94a69c616c))
+
 ## [0.1.5](https://github.com/gemini-cli-extensions/looker/compare/0.1.4...0.1.5) (2025-11-14)
 
 
