@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.1.7](https://github.com/gemini-cli-extensions/looker/compare/0.1.6...0.1.7) (2025-12-05)
+
+
+### Features
+
+* **prebuilt/cloud-sql:** Add clone instance tool for cloud sql ([genai-toolbox#​1845](https://redirect.github.com/googleapis/genai-toolbox/issues/1845)) ([5e43630](https://redirect.github.com/googleapis/genai-toolbox/commit/5e43630907aa2d7bc6818142483a33272eab060b)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+* **serverless-spark:** Add create\_pyspark\_batch tool ([1bf0b51](https://redirect.github.com/googleapis/genai-toolbox/commit/1bf0b51f033c956790be1577bf5310d0b17e9c12)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+* **serverless-spark:** Add create\_spark\_batch tool ([17a9792](https://redirect.github.com/googleapis/genai-toolbox/commit/17a979207dbc4fe70acd0ebda164d1a8d34c1ed3)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+* Support alternate accessToken header name ([genai-toolbox#​1968](https://redirect.github.com/googleapis/genai-toolbox/issues/1968)) ([18017d6](https://redirect.github.com/googleapis/genai-toolbox/commit/18017d6545335a6fc1c472617101c35254d9a597)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+* Support for annotations ([genai-toolbox#​2007](https://redirect.github.com/googleapis/genai-toolbox/issues/2007)) ([ac21335](https://redirect.github.com/googleapis/genai-toolbox/commit/ac21335f4e88ca52d954d7f8143a551a35661b94)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+
+
+### Bug Fixes
+
+* Add import for firebirdsql ([genai-toolbox#​2045](https://redirect.github.com/googleapis/genai-toolbox/issues/2045)) ([fb7aae9](https://redirect.github.com/googleapis/genai-toolbox/commit/fb7aae9d35b760d3471d8379642f835a0d84ec41)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+* Correct FAQ to mention HTTP tools ([genai-toolbox#​2036](https://redirect.github.com/googleapis/genai-toolbox/issues/2036)) ([7b44237](https://redirect.github.com/googleapis/genai-toolbox/commit/7b44237d4a21bfbf8d3cebe4d32a15affa29584d)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+* Format BigQuery numeric output as decimal strings ([genai-toolbox#​2084](https://redirect.github.com/googleapis/genai-toolbox/issues/2084)) ([155bff8](https://redirect.github.com/googleapis/genai-toolbox/commit/155bff80c1da4fae1e169e425fd82e1dc3373041)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+* Set default annotations for tools in code if annotation not provided in yaml ([genai-toolbox#​2049](https://redirect.github.com/googleapis/genai-toolbox/issues/2049)) ([565460c](https://redirect.github.com/googleapis/genai-toolbox/commit/565460c4ea8953dbe80070a8e469f957c0f7a70c)) ([7e9c8cc](https://github.com/gemini-cli-extensions/looker/commit/7e9c8cc4322e71fc239ec340667969bb47539365))
+
 ## [0.1.6](https://github.com/gemini-cli-extensions/looker/compare/0.1.5...0.1.6) (2025-11-20)
 
 
