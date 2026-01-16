@@ -31,27 +31,22 @@
     },
     {
       "name": "Verify SSL",
-      "description": "Whether to verify SSL certificates",
+      "description": "(Optional) Boolean to verify SSL certificates",
       "envVar": "LOOKER_VERIFY_SSL"
     },
     {
-      "name": "Use Client OAuth",
-      "description": "Whether to use OAuth for authentication",
-      "envVar": "LOOKER_USE_CLIENT_OAUTH"
-    },
-    {
       "name": "Show Hidden Models",
-      "description": "Whether to show hidden models",
+      "description": "(Optional) Boolean to show hidden models",
       "envVar": "LOOKER_SHOW_HIDDEN_MODELS"
     },
     {
       "name": "Show Hidden Explores",
-      "description": "Whether to show hidden explores",
+      "description": "(Optional) Boolean to show hidden explores",
       "envVar": "LOOKER_SHOW_HIDDEN_EXPLORES"
     },
     {
       "name": "Show Hidden Fields",
-      "description": "Whether to show hidden fields",
+      "description": "(Optional) Boolean to show hidden fields",
       "envVar": "LOOKER_SHOW_HIDDEN_FIELDS"
     }
   ]
