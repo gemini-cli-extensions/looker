@@ -9,14 +9,45 @@
         "--prebuilt",
         "looker",
         "--stdio"
-      ],
-      "env": {
-        "LOOKER_BASE_URL": "${LOOKER_BASE_URL}",
-        "LOOKER_CLIENT_ID": "${LOOKER_CLIENT_ID}",
-        "LOOKER_CLIENT_SECRET": "${LOOKER_CLIENT_SECRET}",
-        "LOOKER_VERIFY_SSL": "${LOOKER_VERIFY_SSL}"
-      }
+      ]
     }
   },
-  "contextFileName": "LOOKER.md"
+  "contextFileName": "LOOKER.md",
+  "settings": [
+    {
+      "name": "Base URL",
+      "description": "URL of the Looker instance",
+      "envVar": "LOOKER_BASE_URL"
+    },
+    {
+      "name": "Client ID",
+      "description": "Client ID of the Looker API",
+      "envVar": "LOOKER_CLIENT_ID"
+    },
+    {
+      "name": "Client Secret",
+      "description": "Client Secret of the Looker API",
+      "envVar": "LOOKER_CLIENT_SECRET"
+    },
+    {
+      "name": "Verify SSL",
+      "description": "(Optional) Boolean to verify SSL certificates",
+      "envVar": "LOOKER_VERIFY_SSL"
+    },
+    {
+      "name": "Show Hidden Models",
+      "description": "(Optional) Boolean to show hidden models",
+      "envVar": "LOOKER_SHOW_HIDDEN_MODELS"
+    },
+    {
+      "name": "Show Hidden Explores",
+      "description": "(Optional) Boolean to show hidden explores",
+      "envVar": "LOOKER_SHOW_HIDDEN_EXPLORES"
+    },
+    {
+      "name": "Show Hidden Fields",
+      "description": "(Optional) Boolean to show hidden fields",
+      "envVar": "LOOKER_SHOW_HIDDEN_FIELDS"
+    }
+  ]
 }
