@@ -109,7 +109,9 @@ instance and create new saved content.
 1. **run_look**: Run a saved Look and return the data
 1. **make_look**: Create a saved Look in Looker and return the URL
 1. **get_dashboards**: Return the saved dashboards that match a title or description
+1. **run_dashboard**: Run a saved dashboard and return the data
 1. **make_dashboard**: Create a saved dashboard in Looker and return the URL
+1. **add_dashboard_filter**: Add a filter to a dashboard
 1. **add_dashboard_element**: Add a tile to a dashboard
 
 ### Looker Instance Health Tools
@@ -138,6 +140,10 @@ as well as get the database schema needed to write LookML effectively.
 1. **get_connection_databases**: Get the list of databases for a connection
 1. **get_connection_tables**: Get the list of tables for a connection
 1. **get_connection_table_columns**: Get the list of columns for a table in a connection
+
+### Developer Tools
+
+1. **generate_embed_url**: Generate an embed url for content.
 
 ## Additional Extensions
 
