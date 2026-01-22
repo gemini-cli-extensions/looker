@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.1.10](https://github.com/gemini-cli-extensions/looker/compare/0.1.9...0.1.10) (2026-01-22)
+
+
+### Features
+
+* **prebuilt/cloud-sql-mysql:** Update CSQL MySQL prebuilt tools to use IAM ([genai-toolbox#​2202](https://redirect.github.com/googleapis/genai-toolbox/issues/2202)) ([731a32e](https://redirect.github.com/googleapis/genai-toolbox/commit/731a32e5360b4d6862d81fcb27d7127c655679a8)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+* **snowflake:** Add Snowflake Source and Tools ([genai-toolbox#​858](https://redirect.github.com/googleapis/genai-toolbox/issues/858)) ([b706b5b](https://redirect.github.com/googleapis/genai-toolbox/commit/b706b5bc685aeda277f277868bae77d38d5fd7b6)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+* **tools/looker:** Add ability to set destination folder with `make_look` and `make_dashboard`. ([genai-toolbox#​2245](https://redirect.github.com/googleapis/genai-toolbox/issues/2245)) ([eb79339](https://redirect.github.com/googleapis/genai-toolbox/commit/eb793398cd1cc4006d9808ccda5dc7aea5e92bd5)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+* Add `allowed-hosts` flag ([genai-toolbox#​2254](https://redirect.github.com/googleapis/genai-toolbox/issues/2254)) ([17b41f6](https://redirect.github.com/googleapis/genai-toolbox/commit/17b41f64531b8fe417c28ada45d1992ba430dc1b)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+* Add `embeddingModel` support ([genai-toolbox#​2121](https://redirect.github.com/googleapis/genai-toolbox/issues/2121)) ([9c62f31](https://redirect.github.com/googleapis/genai-toolbox/commit/9c62f313ff5edf0a3b5b8a3e996eba078fba4095)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+* Add parameter default value to manifest ([genai-toolbox#​2264](https://redirect.github.com/googleapis/genai-toolbox/issues/2264)) ([9d1feca](https://redirect.github.com/googleapis/genai-toolbox/commit/9d1feca10810fa42cb4c94a409252f1bd373ee36)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+
+
+### Bug Fixes
+
+* **server:** Add `embeddingModel` config initialization ([genai-toolbox#​2281](https://redirect.github.com/googleapis/genai-toolbox/issues/2281)) ([a779975](https://redirect.github.com/googleapis/genai-toolbox/commit/a7799757c9345f99b6d2717841fbf792d364e1a2)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+* **tools/looker:** Looker client OAuth nil pointer error ([genai-toolbox#​2231](https://redirect.github.com/googleapis/genai-toolbox/issues/2231)) ([268700b](https://redirect.github.com/googleapis/genai-toolbox/commit/268700bdbf8281de0318d60ca613ed3672990b20)) ([578568a](https://github.com/gemini-cli-extensions/looker/commit/578568a5931e40fc76c2ba6801d31c9dcdb64638))
+
 ## [0.1.9](https://github.com/gemini-cli-extensions/looker/compare/0.1.8...0.1.9) (2025-12-19)
 
 
