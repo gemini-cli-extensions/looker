@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.11](https://github.com/gemini-cli-extensions/looker/compare/0.1.10...0.1.11) (2026-01-28)
+
+
+### Features
+
+* add Configuration settings ([#81](https://github.com/gemini-cli-extensions/looker/issues/81)) ([d294fa3](https://github.com/gemini-cli-extensions/looker/commit/d294fa33a56239a3af4dd74e4c9d0db456c23c45))
+
 ## [0.1.10](https://github.com/gemini-cli-extensions/looker/compare/0.1.9...0.1.10) (2026-01-22)
 
 
