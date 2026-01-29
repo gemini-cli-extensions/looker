@@ -27,6 +27,7 @@ Before you begin, ensure you have the following:
 * [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
 * Setup Gemini CLI [Authentication](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#-authentication-options).
 * A Looker instance with API access enabled.
+    You will need a Looker Client Id and Client Secret. These can be obtained by following the directions at [Looker API authentication](https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk). If you don't have access to the Admin pages of the Looker system, you will need to ask your administrator to get the Id and Secret for you.
 
 ## Getting Started
 
@@ -40,12 +41,29 @@ gemini extensions install https://github.com/gemini-cli-extensions/looker
 
 ### Configuration
 
-You will need a Looker Client Id and Client Secret. These can be obtained by
-following the directions at [Looker API authentication](https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk). If you
-don't have access to the Admin pages of the Looker system, you will need to ask
-your administrator to get the Id and Secret for you.
+You will be prompted to configure the following settings during installation. These settings are saved in an `.env` file within the extension's directory.
 
-Set the following environment variables before starting the Gemini CLI. These variables can be loaded from a `.env` file.
+*   `LOOKER_BASE_URL`: The URL of your Looker instance (e.g. `https://looker.example.com`). You may need to add the port, i.e. `:19999`.
+*   `LOOKER_CLIENT_ID`: Your Looker Client ID.
+*   `LOOKER_CLIENT_SECRET`: Your Looker Client Secret.
+*   `LOOKER_VERIFY_SSL`: (Optional) Whether to verify SSL certificates. Defaults to `true`.
+*   `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show hidden models. Defaults to `true`.
+*   `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show hidden explores. Defaults to `true`.
+*   `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show hidden fields. Defaults to `true`.
+
+To view or update your configuration:
+
+**List Settings:**
+*   Terminal: `gemini extensions list`
+*   Gemini CLI: `/extensions list`
+
+**Update Settings:**
+*   Terminal: `gemini extensions config looker [setting name] [--scope <scope>]`
+    *   `setting name`: (Optional) The single setting to configure.
+    *   `scope`: (Optional) The scope of the setting in (`user` or `workspace`). Defaults to `user`.
+*   Currently, you must restart the Gemini CLI for changes to take effect. We recommend using `gemini --resume` to resume your session.
+
+Alternatively, you can manually set these environment variables before starting the Gemini CLI:
 
 ```bash
 export LOOKER_BASE_URL="<your-looker-instance-url>"  # e.g. `https://looker.example.com`. You may need to add the port, i.e. `:19999`.
@@ -56,6 +74,9 @@ export LOOKER_SHOW_HIDDEN_MODELS="true" # Optional, defaults to true
 export LOOKER_SHOW_HIDDEN_EXPLORES="true" # Optional, defaults to true
 export LOOKER_SHOW_HIDDEN_FIELDS="true" # Optional, defaults to true
 ```
+
+> [!NOTE]
+> * See [Troubleshooting](#troubleshooting) for debugging your configuration.
 
 ### Start Gemini CLI
 
@@ -155,7 +176,6 @@ Use `gemini --debug` to enable debugging.
 
 Common issues:
 
-* "failed to find default credentials: google: could not find default credentials.": Ensure [Application Default Credentials](https://cloud.google.com/docs/authentication/gcloud) are available in your environment. See [Set up Application Default Credentials](https://cloud.google.com/docs/authentication/external/set-up-adc) for more information.
 * "✖ Error during discovery for server: MCP error -32000: Connection closed": The database connection has not been established. Ensure your configuration is set via environment variables.
 * "✖ MCP ERROR: Error: spawn /Users/USER/.gemini/extensions/cloud-sql-sqlserver/toolbox ENOENT": The Toolbox binary did not download correctly. Ensure you are using Gemini CLI v0.6.0+.
 * "cannot execute binary file": The Toolbox binary did not download correctly. Ensure the correct binary for your OS/Architecture has been downloaded. See [Installing the server](https://googleapis.github.io/genai-toolbox/getting-started/introduction/#installing-the-server) for more information.
