@@ -156,6 +156,7 @@ as well as get the database schema needed to write LookML effectively.
 1. **create_project_file**: Create a file in a project
 1. **update_project_file**: Update the contents of a file in a project
 1. **delete_project_file**: Delete a file in a project
+1. **validate_project**: Validate a project
 1. **get_connections**: Get the list of connections
 1. **get_connection_schemas**: Get the list of schemas for a connection
 1. **get_connection_databases**: Get the list of databases for a connection
