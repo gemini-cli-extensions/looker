@@ -7,7 +7,7 @@
       "command": "${extensionPath}${/}toolbox",
       "args": [
         "--prebuilt",
-        "looker",
+        "looker,looker-dev",
         "--stdio"
       ]
     }
