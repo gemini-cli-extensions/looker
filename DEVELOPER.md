@@ -10,7 +10,7 @@ Before you begin, ensure you have the following:
 1.  **Gemini CLI:** Install the Gemini CLI version v0.6.0 or above. Installation
     instructions can be found on the official Gemini CLI documentation. You can
     verify your version by running `gemini --version`.
-2.  **Looker Instance:** For testing, you will need access to an active Looker instance. See [Looker source](https://googleapis.github.io/genai-toolbox/resources/sources/looker/) for more info.
+2.  **Looker Instance:** For testing, you will need access to an active Looker instance. See [Looker source](https://mcp-toolbox.dev/integrations/looker/source/) for more info.
 
 ## Developing the Extension
 
