@@ -1,6 +1,6 @@
 {
   "name": "looker",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Connect to Looker",
   "mcpServers": {
     "looker": {
