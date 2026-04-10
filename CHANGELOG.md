@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.0](https://github.com/gemini-cli-extensions/looker/compare/0.2.4...0.3.0) (2026-04-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **tools/looker:** refactor looker-git-branch tool into 5 separate tools ([mcp-toolbox#​2976](https://redirect.github.com/googleapis/mcp-toolbox/issues/2976))
+
+### Features
+
+* **auth:** Support opaque token validation for `generic` authService ([mcp-toolbox#​2944](https://redirect.github.com/googleapis/mcp-toolbox/issues/2944)) ([c924701](https://redirect.github.com/googleapis/mcp-toolbox/commit/c924701adede95877594423d78b7ae72fe0b9c82)) ([569da80](https://github.com/gemini-cli-extensions/looker/commit/569da806c9e3ff7da46530c1d4efce4e647440bb))
+* **cloudsqlpg:** Run `SELECT 1` after successful connection attempt ([mcp-toolbox#​2997](https://redirect.github.com/googleapis/mcp-toolbox/issues/2997)) ([6ed9700](https://redirect.github.com/googleapis/mcp-toolbox/commit/6ed9700e15f08b31e65eb0afa605f4a8ea937e66)) ([569da80](https://github.com/gemini-cli-extensions/looker/commit/569da806c9e3ff7da46530c1d4efce4e647440bb))
+* **tools/looker:** refactor looker-git-branch tool into 5 separate tools ([mcp-toolbox#​2976](https://redirect.github.com/googleapis/mcp-toolbox/issues/2976)) ([569da80](https://github.com/gemini-cli-extensions/looker/commit/569da806c9e3ff7da46530c1d4efce4e647440bb))
+* **tools/looker:** Refactor looker-git-branch tool into 5 separate tools ([mcp-toolbox#​2976](https://redirect.github.com/googleapis/mcp-toolbox/issues/2976)) ([b2472d4](https://redirect.github.com/googleapis/mcp-toolbox/commit/b2472d4926dacc496fc6956185fb281b5e75f56f)) ([569da80](https://github.com/gemini-cli-extensions/looker/commit/569da806c9e3ff7da46530c1d4efce4e647440bb))
+
 ## [0.2.4](https://github.com/gemini-cli-extensions/looker/compare/0.2.3...0.2.4) (2026-04-08)
 
 
