@@ -65,6 +65,7 @@ The primary maintainers for this repository are defined in the
 [`.github/CODEOWNERS`](.github/CODEOWNERS) file:
 
 *   `@gemini-cli-extensions/senseai-eco`
+*   `@gemini-cli-extensions/looker-maintainers`
 
 ### Releasing
 
