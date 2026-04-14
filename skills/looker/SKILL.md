@@ -1,6 +1,6 @@
 ---
 name: looker
-description: Interact with your Looker instance.
+description: These skills are designed for data discovery and business intelligence. 
 ---
 
 ## Usage
@@ -15,7 +15,9 @@ All scripts can be executed using Node.js. Replace `<param_name>` and `<param_va
 
 Note: The scripts automatically load the environment variables from various .env files. Do not ask the user to set vars unless skill executions fails due to env var absence.
 
+
 ## Scripts
+
 
 ### add_dashboard_element
 
@@ -23,19 +25,16 @@ This tool creates a new tile (element) within an existing Looker dashboard.
 Tiles are added in the order this tool is called for a given `dashboard_id`.
 
 CRITICAL ORDER OF OPERATIONS:
-
 1. Create the dashboard using `make_dashboard`.
 2. Add any dashboard-level filters using `add_dashboard_filter`.
 3. Then, add elements (tiles) using this tool.
 
 Required Parameters:
-
 - dashboard_id: The ID of the target dashboard, obtained from `make_dashboard`.
 - model_name, explore_name, fields: These query parameters are inherited
   from the `query` tool and are required to define the data for the tile.
 
 Optional Parameters:
-
 - title: An optional title for the dashboard tile.
 - pivots, filters, sorts, limit, query_timezone: These query parameters are
   inherited from the `query` tool and can be used to customize the tile's query.
@@ -48,22 +47,24 @@ A dashboard element can be connected to one or more dashboard filters (created w
 and the `field` from the element's query that the filter should apply to.
 The format for specifying the field is `view_name.field_name`.
 
+
 #### Parameters
 
-| Name              | Type    | Description                                                                                                  | Required | Default |
-| :---------------- | :------ | :----------------------------------------------------------------------------------------------------------- | :------- | :------ |
-| model             | string  | The model containing the explore.                                                                            | Yes      |         |
-| explore           | string  | The explore to be queried.                                                                                   | Yes      |         |
-| fields            | array   | The fields to be retrieved.                                                                                  | Yes      |         |
-| filters           | object  | The filters for the query                                                                                    | No       | `map[]` |
-| pivots            | array   | The query pivots (must be included in fields as well).                                                       | No       | `[]`    |
-| sorts             | array   | The sorts like "field.id desc 0".                                                                            | No       | `[]`    |
-| limit             | integer | The row limit.                                                                                               | No       | `500`   |
-| tz                | string  | The query timezone.                                                                                          | No       |         |
-| dashboard_id      | string  | The id of the dashboard where this tile will exist                                                           | Yes      |         |
-| title             | string  | The title of the Dashboard Element                                                                           | No       | ``      |
-| vis_config        | object  | The visualization config for the query                                                                       | No       | `map[]` |
-| dashboard_filters | array   | An array of dashboard filters like [{"dashboard_filter_name": "name", "field": "view_name.field_name"}, ...] | No       |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore to be queried. | Yes |  |
+| fields | array | The fields to be retrieved. | Yes |  |
+| filters | object | The filters for the query | No | `map[]` |
+| pivots | array | The query pivots (must be included in fields as well). | No | `[]` |
+| sorts | array | The sorts like "field.id desc 0". | No | `[]` |
+| limit | integer | The row limit. | No | `500` |
+| tz | string | The query timezone. | No |  |
+| dashboard_id | string | The id of the dashboard where this tile will exist | Yes |  |
+| title | string | The title of the Dashboard Element | No | `` |
+| vis_config | object | The visualization config for the query | No | `map[]` |
+| dashboard_filters | array | An array of dashboard filters like [{"dashboard_filter_name": "name", "field": "view_name.field_name"}, ...] | No |  |
+
 
 ---
 
@@ -72,13 +73,11 @@ The format for specifying the field is `view_name.field_name`.
 This tool adds a filter to a Looker dashboard.
 
 CRITICAL ORDER OF OPERATIONS:
-
 1. Create a dashboard using `make_dashboard`.
 2. Add all desired filters using this tool (`add_dashboard_filter`).
 3. Finally, add dashboard elements (tiles) using `add_dashboard_element`.
 
 Parameters:
-
 - dashboard_id (required): The ID from `make_dashboard`.
 - name (required): A unique internal identifier for the filter. You will use this `name` later in `add_dashboard_element` to bind tiles to this filter.
 - title (required): The label displayed to users in the UI.
@@ -87,26 +86,27 @@ Parameters:
 
 Field Filters (`filter_type: field_filter`):
 If creating a field filter, you must also provide:
-
 - model
 - explore
 - dimension
-  The filter will inherit suggestions and type information from this LookML field.
+The filter will inherit suggestions and type information from this LookML field.
+
 
 #### Parameters
 
-| Name                  | Type    | Description                                                                                                             | Required | Default        |
-| :-------------------- | :------ | :---------------------------------------------------------------------------------------------------------------------- | :------- | :------------- |
-| dashboard_id          | string  | The id of the dashboard where this filter will exist                                                                    | Yes      |                |
-| name                  | string  | The name of the Dashboard Filter                                                                                        | Yes      |                |
-| title                 | string  | The title of the Dashboard Filter                                                                                       | Yes      |                |
-| filter_type           | string  | The filter_type of the Dashboard Filter: date_filter, number_filter, string_filter, field_filter (default field_filter) | No       | `field_filter` |
-| default_value         | string  | The default_value of the Dashboard Filter (optional)                                                                    | No       |                |
-| model                 | string  | The model of a field type Dashboard Filter (required if type field)                                                     | No       |                |
-| explore               | string  | The explore of a field type Dashboard Filter (required if type field)                                                   | No       |                |
-| dimension             | string  | The dimension of a field type Dashboard Filter (required if type field)                                                 | No       |                |
-| allow_multiple_values | boolean | The Dashboard Filter should allow multiple values (default true)                                                        | No       | `true`         |
-| required              | boolean | The Dashboard Filter is required to run dashboard (default false)                                                       | No       | `false`        |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| dashboard_id | string | The id of the dashboard where this filter will exist | Yes |  |
+| name | string | The name of the Dashboard Filter | Yes |  |
+| title | string | The title of the Dashboard Filter | Yes |  |
+| filter_type | string | The filter_type of the Dashboard Filter: date_filter, number_filter, string_filter, field_filter (default field_filter) | No | `field_filter` |
+| default_value | string | The default_value of the Dashboard Filter (optional) | No |  |
+| model | string | The model of a field type Dashboard Filter (required if type field) | No |  |
+| explore | string | The explore of a field type Dashboard Filter (required if type field) | No |  |
+| dimension | string | The dimension of a field type Dashboard Filter (required if type field) | No |  |
+| allow_multiple_values | boolean | The Dashboard Filter should allow multiple values (default true) | No | `true` |
+| required | boolean | The Dashboard Filter is required to run dashboard (default false) | No | `false` |
+
 
 ---
 
@@ -116,7 +116,6 @@ This tool generates a signed, private embed URL for specific Looker content,
 allowing users to access it directly.
 
 Parameters:
-
 - type (required): The type of content to embed. Common values include:
   - `dashboards`
   - `looks`
@@ -125,12 +124,14 @@ Parameters:
   - For dashboards and looks, use the numeric ID (e.g., "123").
   - For explores, use the format "model_name/explore_name".
 
+
 #### Parameters
 
-| Name | Type   | Description                                                                  | Required | Default |
-| :--- | :----- | :--------------------------------------------------------------------------- | :------- | :------ |
-| type | string | Type of Looker content to embed (ie. dashboards, looks, query-visualization) | No       | ``      |
-| id   | string | The ID of the content to embed.                                              | No       | ``      |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| type | string | Type of Looker content to embed (ie. dashboards, looks, query-visualization) | No | `` |
+| id | string | The ID of the content to embed. | No | `` |
+
 
 ---
 
@@ -139,7 +140,6 @@ Parameters:
 This tool searches for saved dashboards in a Looker instance. It returns a list of JSON objects, each representing a dashboard.
 
 Search Parameters:
-
 - title (optional): Filter by dashboard title (supports wildcards).
 - folder_id (optional): Filter by the ID of the folder where the dashboard is saved.
 - user_id (optional): Filter by the ID of the user who created the dashboard.
@@ -149,7 +149,6 @@ Search Parameters:
 - offset (optional): Starting point for pagination.
 
 String Search Behavior:
-
 - Case-insensitive matching.
 - Supports SQL LIKE pattern match wildcards:
   - `%`: Matches any sequence of zero or more characters. (e.g., `"finan%"` matches "financial", "finance")
@@ -158,14 +157,16 @@ String Search Behavior:
   - `"IS NULL"`: Matches dashboards where the field is null.
   - `"NOT NULL"`: Excludes dashboards where the field is null.
 
+
 #### Parameters
 
-| Name   | Type    | Description                                                 | Required | Default |
-| :----- | :------ | :---------------------------------------------------------- | :------- | :------ |
-| title  | string  | The title of the dashboard.                                 | No       | ``      |
-| desc   | string  | The description of the dashboard.                           | No       | ``      |
-| limit  | integer | The number of dashboards to fetch. Default 100              | No       | `100`   |
-| offset | integer | The number of dashboards to skip before fetching. Default 0 | No       | `0`     |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| title | string | The title of the dashboard. | No | `` |
+| desc | string | The description of the dashboard. | No | `` |
+| limit | integer | The number of dashboards to fetch. Default 100 | No | `100` |
+| offset | integer | The number of dashboards to skip before fetching. Default 0 | No | `0` |
+
 
 ---
 
@@ -177,23 +178,23 @@ Dimensions are non-aggregatable attributes or characteristics of your data
 filtering, or segmenting query results.
 
 Parameters:
-
 - model_name (required): The name of the LookML model, obtained from `get_models`.
 - explore_name (required): The name of the explore within the model, obtained from `get_explores`.
 
 Output Details:
-
 - If a dimension includes a `suggestions` field, its contents are valid values
   that can be used directly as filters for that dimension.
 - If a `suggest_explore` and `suggest_dimension` are provided, you can query
   that specified explore and dimension to retrieve a list of valid filter values.
 
+
 #### Parameters
 
-| Name    | Type   | Description                        | Required | Default |
-| :------ | :----- | :--------------------------------- | :------- | :------ |
-| model   | string | The model containing the explore.  | Yes      |         |
-| explore | string | The explore containing the fields. | Yes      |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore containing the fields. | Yes |  |
+
 
 ---
 
@@ -205,14 +206,15 @@ tables together to allow for focused analysis on a particular subject area.
 The output provides details like the explore's `name` and `label`.
 
 Parameters:
-
 - model_name (required): The name of the LookML model, obtained from `get_models`.
+
 
 #### Parameters
 
-| Name  | Type   | Description                        | Required | Default |
-| :---- | :----- | :--------------------------------- | :------- | :------ |
-| model | string | The model containing the explores. | Yes      |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explores. | Yes |  |
+
 
 ---
 
@@ -225,19 +227,20 @@ clause of the SQL query. They are often used in conjunction with liquid templati
 to create dynamic queries.
 
 Note: Regular dimensions and measures can also be used as filters in a query.
-This tool _only_ returns fields explicitly defined as `filter:` in LookML.
+This tool *only* returns fields explicitly defined as `filter:` in LookML.
 
 Parameters:
-
 - model_name (required): The name of the LookML model, obtained from `get_models`.
 - explore_name (required): The name of the explore within the model, obtained from `get_explores`.
 
+
 #### Parameters
 
-| Name    | Type   | Description                        | Required | Default |
-| :------ | :----- | :--------------------------------- | :------- | :------ |
-| model   | string | The model containing the explore.  | Yes      |         |
-| explore | string | The explore containing the fields. | Yes      |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore containing the fields. | Yes |  |
+
 
 ---
 
@@ -247,7 +250,6 @@ This tool searches for saved Looks (pre-defined queries and visualizations)
 in a Looker instance. It returns a list of JSON objects, each representing a Look.
 
 Search Parameters:
-
 - title (optional): Filter by Look title (supports wildcards).
 - folder_id (optional): Filter by the ID of the folder where the Look is saved.
 - user_id (optional): Filter by the ID of the user who created the Look.
@@ -257,7 +259,6 @@ Search Parameters:
 - offset (optional): Starting point for pagination.
 
 String Search Behavior:
-
 - Case-insensitive matching.
 - Supports SQL LIKE pattern match wildcards:
   - `%`: Matches any sequence of zero or more characters. (e.g., `"dan%"` matches "danger", "Danzig")
@@ -266,14 +267,16 @@ String Search Behavior:
   - `"IS NULL"`: Matches Looks where the field is null.
   - `"NOT NULL"`: Excludes Looks where the field is null.
 
+
 #### Parameters
 
-| Name   | Type    | Description                                            | Required | Default |
-| :----- | :------ | :----------------------------------------------------- | :------- | :------ |
-| title  | string  | The title of the look.                                 | No       | ``      |
-| desc   | string  | The description of the look.                           | No       | ``      |
-| limit  | integer | The number of looks to fetch. Default 100              | No       | `100`   |
-| offset | integer | The number of looks to skip before fetching. Default 0 | No       | `0`     |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| title | string | The title of the look. | No | `` |
+| desc | string | The description of the look. | No | `` |
+| limit | integer | The number of looks to fetch. Default 100 | No | `100` |
+| offset | integer | The number of looks to skip before fetching. Default 0 | No | `0` |
+
 
 ---
 
@@ -284,23 +287,23 @@ Measures are aggregatable metrics (e.g., total sales, average price, count of us
 that are used for calculations and quantitative analysis in your queries.
 
 Parameters:
-
 - model_name (required): The name of the LookML model, obtained from `get_models`.
 - explore_name (required): The name of the explore within the model, obtained from `get_explores`.
 
 Output Details:
-
 - If a measure includes a `suggestions` field, its contents are valid values
   that can be used directly as filters for that measure.
 - If a `suggest_explore` and `suggest_dimension` are provided, you can query
   that specified explore and dimension to retrieve a list of valid filter values.
 
+
 #### Parameters
 
-| Name    | Type   | Description                        | Required | Default |
-| :------ | :----- | :--------------------------------- | :------- | :------ |
-| model   | string | The model containing the explore.  | Yes      |         |
-| explore | string | The explore containing the fields. | Yes      |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore containing the fields. | Yes |  |
+
 
 ---
 
@@ -313,6 +316,9 @@ essential for subsequent calls to tools like `get_explores` or `query`.
 
 This tool takes no parameters.
 
+
+
+
 ---
 
 ### get_parameters
@@ -324,16 +330,17 @@ with `liquid` templating to create flexible dashboards and reports, enabling
 users to choose dimensions, measures, or other query components at runtime.
 
 Parameters:
-
 - model_name (required): The name of the LookML model, obtained from `get_models`.
 - explore_name (required): The name of the explore within the model, obtained from `get_explores`.
 
+
 #### Parameters
 
-| Name    | Type   | Description                        | Required | Default |
-| :------ | :----- | :--------------------------------- | :------- | :------ |
-| model   | string | The model containing the explore.  | Yes      |         |
-| explore | string | The explore containing the fields. | Yes      |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore containing the fields. | Yes |  |
+
 
 ---
 
@@ -345,7 +352,6 @@ After creation, use `add_dashboard_filter` to add filters and
 `add_dashboard_element` to add content tiles.
 
 Required Parameters:
-
 - title (required): A unique title for the new dashboard.
 - description (required): A brief description of the dashboard's purpose.
 
@@ -354,13 +360,15 @@ A JSON object containing a link (`url`) to the newly created dashboard and
 its unique `id`. This `dashboard_id` is crucial for subsequent calls to
 `add_dashboard_filter` and `add_dashboard_element`.
 
+
 #### Parameters
 
-| Name        | Type   | Description                                                                                      | Required | Default |
-| :---------- | :----- | :----------------------------------------------------------------------------------------------- | :------- | :------ |
-| title       | string | The title of the Dashboard                                                                       | Yes      |         |
-| description | string | The description of the Dashboard                                                                 | No       | ``      |
-| folder      | string | The folder id where the Dashboard will be created. Leave blank to use the user's personal folder | No       | ``      |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| title | string | The title of the Dashboard | Yes |  |
+| description | string | The description of the Dashboard | No | `` |
+| folder | string | The folder id where the Dashboard will be created. Leave blank to use the user's personal folder | No | `` |
+
 
 ---
 
@@ -370,7 +378,6 @@ This tool creates a new Look (saved query with visualization) in Looker.
 The Look will be saved in the user's personal folder, and its name must be unique.
 
 Required Parameters:
-
 - title: A unique title for the new Look.
 - description: A brief description of the Look's purpose.
 - model_name: The name of the LookML model (from `get_models`).
@@ -378,7 +385,6 @@ Required Parameters:
 - fields: A list of field names (dimensions, measures, filters, or parameters) to include in the query.
 
 Optional Parameters:
-
 - pivots, filters, sorts, limit, query_timezone: These parameters are identical
   to those described for the `query` tool.
 - vis_config: A JSON object defining the visualization settings for the Look.
@@ -387,22 +393,24 @@ Optional Parameters:
 Output:
 A JSON object containing a link (`url`) to the newly created Look, along with its `id` and `slug`.
 
+
 #### Parameters
 
-| Name        | Type    | Description                                                                                 | Required | Default |
-| :---------- | :------ | :------------------------------------------------------------------------------------------ | :------- | :------ |
-| model       | string  | The model containing the explore.                                                           | Yes      |         |
-| explore     | string  | The explore to be queried.                                                                  | Yes      |         |
-| fields      | array   | The fields to be retrieved.                                                                 | Yes      |         |
-| filters     | object  | The filters for the query                                                                   | No       | `map[]` |
-| pivots      | array   | The query pivots (must be included in fields as well).                                      | No       | `[]`    |
-| sorts       | array   | The sorts like "field.id desc 0".                                                           | No       | `[]`    |
-| limit       | integer | The row limit.                                                                              | No       | `500`   |
-| tz          | string  | The query timezone.                                                                         | No       |         |
-| title       | string  | The title of the Look                                                                       | Yes      |         |
-| description | string  | The description of the Look                                                                 | No       | ``      |
-| folder      | string  | The folder id where the Look will be created. Leave blank to use the user's personal folder | No       | ``      |
-| vis_config  | object  | The visualization config for the query                                                      | No       | `map[]` |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore to be queried. | Yes |  |
+| fields | array | The fields to be retrieved. | Yes |  |
+| filters | object | The filters for the query | No | `map[]` |
+| pivots | array | The query pivots (must be included in fields as well). | No | `[]` |
+| sorts | array | The sorts like "field.id desc 0". | No | `[]` |
+| limit | integer | The row limit. | No | `500` |
+| tz | string | The query timezone. | No |  |
+| title | string | The title of the Look | Yes |  |
+| description | string | The description of the Look | No | `` |
+| folder | string | The folder id where the Look will be created. Leave blank to use the user's personal folder | No | `` |
+| vis_config | object | The visualization config for the query | No | `map[]` |
+
 
 ---
 
@@ -411,13 +419,11 @@ A JSON object containing a link (`url`) to the newly created Look, along with it
 This tool runs a query against a LookML model and returns the results in JSON format.
 
 Required Parameters:
-
 - model_name: The name of the LookML model (from `get_models`).
 - explore_name: The name of the explore (from `get_explores`).
 - fields: A list of field names (dimensions, measures, filters, or parameters) to include in the query.
 
 Optional Parameters:
-
 - pivots: A list of fields to pivot the results by. These fields must also be included in the `fields` list.
 - filters: A map of filter expressions, e.g., `{"view.field": "value", "view.date": "7 days"}`.
   - Do not quote field names.
@@ -429,18 +435,20 @@ Optional Parameters:
 
 Note: Use `get_dimensions`, `get_measures`, `get_filters`, and `get_parameters` to find valid fields.
 
+
 #### Parameters
 
-| Name    | Type    | Description                                            | Required | Default |
-| :------ | :------ | :----------------------------------------------------- | :------- | :------ |
-| model   | string  | The model containing the explore.                      | Yes      |         |
-| explore | string  | The explore to be queried.                             | Yes      |         |
-| fields  | array   | The fields to be retrieved.                            | Yes      |         |
-| filters | object  | The filters for the query                              | No       | `map[]` |
-| pivots  | array   | The query pivots (must be included in fields as well). | No       | `[]`    |
-| sorts   | array   | The sorts like "field.id desc 0".                      | No       | `[]`    |
-| limit   | integer | The row limit.                                         | No       | `500`   |
-| tz      | string  | The query timezone.                                    | No       |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore to be queried. | Yes |  |
+| fields | array | The fields to be retrieved. | Yes |  |
+| filters | object | The filters for the query | No | `map[]` |
+| pivots | array | The query pivots (must be included in fields as well). | No | `[]` |
+| sorts | array | The sorts like "field.id desc 0". | No | `[]` |
+| limit | integer | The row limit. | No | `500` |
+| tz | string | The query timezone. | No |  |
+
 
 ---
 
@@ -458,18 +466,20 @@ and optional parameters like `pivots`, `filters`, `sorts`, `limit`, and `query_t
 Output:
 The result of this tool is the raw SQL text.
 
+
 #### Parameters
 
-| Name    | Type    | Description                                            | Required | Default |
-| :------ | :------ | :----------------------------------------------------- | :------- | :------ |
-| model   | string  | The model containing the explore.                      | Yes      |         |
-| explore | string  | The explore to be queried.                             | Yes      |         |
-| fields  | array   | The fields to be retrieved.                            | Yes      |         |
-| filters | object  | The filters for the query                              | No       | `map[]` |
-| pivots  | array   | The query pivots (must be included in fields as well). | No       | `[]`    |
-| sorts   | array   | The sorts like "field.id desc 0".                      | No       | `[]`    |
-| limit   | integer | The row limit.                                         | No       | `500`   |
-| tz      | string  | The query timezone.                                    | No       |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore to be queried. | Yes |  |
+| fields | array | The fields to be retrieved. | Yes |  |
+| filters | object | The filters for the query | No | `map[]` |
+| pivots | array | The query pivots (must be included in fields as well). | No | `[]` |
+| sorts | array | The sorts like "field.id desc 0". | No | `[]` |
+| limit | integer | The row limit. | No | `500` |
+| tz | string | The query timezone. | No |  |
+
 
 ---
 
@@ -484,7 +494,6 @@ All query parameters (e.g., `model_name`, `explore_name`, `fields`, `pivots`,
 `filters`, `sorts`, `limit`, `query_timezone`) are the same as the `query` tool.
 
 Additionally, it accepts an optional `vis_config` parameter:
-
 - vis_config (optional): A JSON object that controls the default visualization
   settings for the generated query.
 
@@ -497,119 +506,112 @@ Here are some notes on making visualizations.
 These chart types share a large number of configuration options.
 
 **General**
-
-- `type`: The type of visualization (`looker_area`, `looker_bar`, `looker_column`, `looker_line`, `looker_scatter`).
-- `series_types`: Override the chart type for individual series.
-- `show_view_names`: Display view names in labels and tooltips (`true`/`false`).
-- `series_labels`: Provide custom names for series.
+*   `type`: The type of visualization (`looker_area`, `looker_bar`, `looker_column`, `looker_line`, `looker_scatter`).
+*   `series_types`: Override the chart type for individual series.
+*   `show_view_names`: Display view names in labels and tooltips (`true`/`false`).
+*   `series_labels`: Provide custom names for series.
 
 **Styling & Colors**
-
-- `colors`: An array of color values to be used for the chart series.
-- `series_colors`: A mapping of series names to specific color values.
-- `color_application`: Advanced controls for color palette application (collection, palette, reverse, etc.).
-- `font_size`: Font size for labels (e.g., '12px').
+*   `colors`: An array of color values to be used for the chart series.
+*   `series_colors`: A mapping of series names to specific color values.
+*   `color_application`: Advanced controls for color palette application (collection, palette, reverse, etc.).
+*   `font_size`: Font size for labels (e.g., '12px').
 
 **Legend**
-
-- `hide_legend`: Show or hide the chart legend (`true`/`false`).
-- `legend_position`: Placement of the legend (`'center'`, `'left'`, `'right'`).
+*   `hide_legend`: Show or hide the chart legend (`true`/`false`).
+*   `legend_position`: Placement of the legend (`'center'`, `'left'`, `'right'`).
 
 **Axes**
-
-- `swap_axes`: Swap the X and Y axes (`true`/`false`).
-- `x_axis_scale`: Scale of the x-axis (`'auto'`, `'ordinal'`, `'linear'`, `'time'`).
-- `x_axis_reversed`, `y_axis_reversed`: Reverse the direction of an axis (`true`/`false`).
-- `x_axis_gridlines`, `y_axis_gridlines`: Display gridlines for an axis (`true`/`false`).
-- `show_x_axis_label`, `show_y_axis_label`: Show or hide the axis title (`true`/`false`).
-- `show_x_axis_ticks`, `show_y_axis_ticks`: Show or hide axis tick marks (`true`/`false`).
-- `x_axis_label`, `y_axis_label`: Set a custom title for an axis.
-- `x_axis_datetime_label`: A format string for datetime labels on the x-axis (e.g., `'%Y-%m'`).
-- `x_padding_left`, `x_padding_right`: Adjust padding on the ends of the x-axis.
-- `x_axis_label_rotation`, `x_axis_label_rotation_bar`: Set rotation for x-axis labels.
-- `x_axis_zoom`, `y_axis_zoom`: Enable zooming on an axis (`true`/`false`).
-- `y_axes`: An array of configuration objects for multiple y-axes.
+*   `swap_axes`: Swap the X and Y axes (`true`/`false`).
+*   `x_axis_scale`: Scale of the x-axis (`'auto'`, `'ordinal'`, `'linear'`, `'time'`).
+*   `x_axis_reversed`, `y_axis_reversed`: Reverse the direction of an axis (`true`/`false`).
+*   `x_axis_gridlines`, `y_axis_gridlines`: Display gridlines for an axis (`true`/`false`).
+*   `show_x_axis_label`, `show_y_axis_label`: Show or hide the axis title (`true`/`false`).
+*   `show_x_axis_ticks`, `show_y_axis_ticks`: Show or hide axis tick marks (`true`/`false`).
+*   `x_axis_label`, `y_axis_label`: Set a custom title for an axis.
+*   `x_axis_datetime_label`: A format string for datetime labels on the x-axis (e.g., `'%Y-%m'`).
+*   `x_padding_left`, `x_padding_right`: Adjust padding on the ends of the x-axis.
+*   `x_axis_label_rotation`, `x_axis_label_rotation_bar`: Set rotation for x-axis labels.
+*   `x_axis_zoom`, `y_axis_zoom`: Enable zooming on an axis (`true`/`false`).
+*   `y_axes`: An array of configuration objects for multiple y-axes.
 
 **Data & Series**
-
-- `stacking`: How to stack series (`''` for none, `'normal'`, `'percent'`).
-- `ordering`: Order of series in a stack (`'none'`, etc.).
-- `limit_displayed_rows`: Enable or disable limiting the number of rows displayed (`true`/`false`).
-- `limit_displayed_rows_values`: Configuration for the row limit (e.g., `{ "first_last": "first", "show_hide": "show", "num_rows": 10 }`).
-- `discontinuous_nulls`: How to render null values in line charts (`true`/`false`).
-- `point_style`: Style for points on line and area charts (`'none'`, `'circle'`, `'circle_outline'`).
-- `series_point_styles`: Override point styles for individual series.
-- `interpolation`: Line interpolation style (`'linear'`, `'monotone'`, `'step'`, etc.).
-- `show_value_labels`: Display values on data points (`true`/`false`).
-- `label_value_format`: A format string for value labels.
-- `show_totals_labels`: Display total labels on stacked charts (`true`/`false`).
-- `totals_color`: Color for total labels.
-- `show_silhouette`: Display a "silhouette" of hidden series in stacked charts (`true`/`false`).
-- `hidden_series`: An array of series names to hide from the visualization.
+*   `stacking`: How to stack series (`''` for none, `'normal'`, `'percent'`).
+*   `ordering`: Order of series in a stack (`'none'`, etc.).
+*   `limit_displayed_rows`: Enable or disable limiting the number of rows displayed (`true`/`false`).
+*   `limit_displayed_rows_values`: Configuration for the row limit (e.g., `{ "first_last": "first", "show_hide": "show", "num_rows": 10 }`).
+*   `discontinuous_nulls`: How to render null values in line charts (`true`/`false`).
+*   `point_style`: Style for points on line and area charts (`'none'`, `'circle'`, `'circle_outline'`).
+*   `series_point_styles`: Override point styles for individual series.
+*   `interpolation`: Line interpolation style (`'linear'`, `'monotone'`, `'step'`, etc.).
+*   `show_value_labels`: Display values on data points (`true`/`false`).
+*   `label_value_format`: A format string for value labels.
+*   `show_totals_labels`: Display total labels on stacked charts (`true`/`false`).
+*   `totals_color`: Color for total labels.
+*   `show_silhouette`: Display a "silhouette" of hidden series in stacked charts (`true`/`false`).
+*   `hidden_series`: An array of series names to hide from the visualization.
 
 **Scatter/Bubble Specific**
-
-- `size_by_field`: The field used to determine the size of bubbles.
-- `color_by_field`: The field used to determine the color of bubbles.
-- `plot_size_by_field`: Whether to display the size-by field in the legend.
-- `cluster_points`: Group nearby points into clusters (`true`/`false`).
-- `quadrants_enabled`: Display quadrants on the chart (`true`/`false`).
-- `quadrant_properties`: Configuration for quadrant labels and colors.
-- `custom_quadrant_value_x`, `custom_quadrant_value_y`: Set quadrant boundaries as a percentage.
-- `custom_quadrant_point_x`, `custom_quadrant_point_y`: Set quadrant boundaries to a specific value.
+*   `size_by_field`: The field used to determine the size of bubbles.
+*   `color_by_field`: The field used to determine the color of bubbles.
+*   `plot_size_by_field`: Whether to display the size-by field in the legend.
+*   `cluster_points`: Group nearby points into clusters (`true`/`false`).
+*   `quadrants_enabled`: Display quadrants on the chart (`true`/`false`).
+*   `quadrant_properties`: Configuration for quadrant labels and colors.
+*   `custom_quadrant_value_x`, `custom_quadrant_value_y`: Set quadrant boundaries as a percentage.
+*   `custom_quadrant_point_x`, `custom_quadrant_point_y`: Set quadrant boundaries to a specific value.
 
 **Miscellaneous**
-
-- `reference_lines`: Configuration for displaying reference lines.
-- `trend_lines`: Configuration for displaying trend lines.
-- `trellis`: Configuration for creating trellis (small multiple) charts.
-- `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering interactions.
+*   `reference_lines`: Configuration for displaying reference lines.
+*   `trend_lines`: Configuration for displaying trend lines.
+*   `trellis`: Configuration for creating trellis (small multiple) charts.
+*   `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering interactions.
 
 ### Boxplot
 
-- Inherits most of the Cartesian chart options.
-- `type`: Must be `looker_boxplot`.
+*   Inherits most of the Cartesian chart options.
+*   `type`: Must be `looker_boxplot`.
 
 ### Funnel
 
-- `type`: Must be `looker_funnel`.
-- `orientation`: How data is read (`'automatic'`, `'dataInRows'`, `'dataInColumns'`).
-- `percentType`: How percentages are calculated (`'percentOfMaxValue'`, `'percentOfPriorRow'`).
-- `labelPosition`, `valuePosition`, `percentPosition`: Placement of labels (`'left'`, `'right'`, `'inline'`, `'hidden'`).
-- `labelColor`, `labelColorEnabled`: Set a custom color for labels.
-- `labelOverlap`: Allow labels to overlap (`true`/`false`).
-- `barColors`: An array of colors for the funnel steps.
-- `color_application`: Advanced color palette controls.
-- `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering.
+*   `type`: Must be `looker_funnel`.
+*   `orientation`: How data is read (`'automatic'`, `'dataInRows'`, `'dataInColumns'`).
+*   `percentType`: How percentages are calculated (`'percentOfMaxValue'`, `'percentOfPriorRow'`).
+*   `labelPosition`, `valuePosition`, `percentPosition`: Placement of labels (`'left'`, `'right'`, `'inline'`, `'hidden'`).
+*   `labelColor`, `labelColorEnabled`: Set a custom color for labels.
+*   `labelOverlap`: Allow labels to overlap (`true`/`false`).
+*   `barColors`: An array of colors for the funnel steps.
+*   `color_application`: Advanced color palette controls.
+*   `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering.
 
 ### Pie / Donut
 
-- Pie charts must have exactly one dimension and one numerical measure.
-- `type`: Must be `looker_pie`.
-- `value_labels`: Where to display values (`'legend'`, `'labels'`).
-- `label_type`: The format of data labels (`'labPer'`, `'labVal'`, `'lab'`, `'val'`, `'per'`).
-- `start_angle`, `end_angle`: The start and end angles of the pie chart.
-- `inner_radius`: The inner radius, used to create a donut chart.
-- `series_colors`, `series_labels`: Override colors and labels for specific slices.
-- `color_application`: Advanced color palette controls.
-- `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering.
-- `advanced_vis_config`: A string containing JSON for advanced Highcharts configuration.
+*   Pie charts must have exactly one dimension and one numerical measure.
+*   `type`: Must be `looker_pie`.
+*   `value_labels`: Where to display values (`'legend'`, `'labels'`).
+*   `label_type`: The format of data labels (`'labPer'`, `'labVal'`, `'lab'`, `'val'`, `'per'`).
+*   `start_angle`, `end_angle`: The start and end angles of the pie chart.
+*   `inner_radius`: The inner radius, used to create a donut chart.
+*   `series_colors`, `series_labels`: Override colors and labels for specific slices.
+*   `color_application`: Advanced color palette controls.
+*   `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering.
+*   `advanced_vis_config`: A string containing JSON for advanced Highcharts configuration.
 
 ### Waterfall
 
-- Inherits most of the Cartesian chart options.
-- `type`: Must be `looker_waterfall`.
-- `up_color`: Color for positive (increasing) values.
-- `down_color`: Color for negative (decreasing) values.
-- `total_color`: Color for the total bar.
+*   Inherits most of the Cartesian chart options.
+*   `type`: Must be `looker_waterfall`.
+*   `up_color`: Color for positive (increasing) values.
+*   `down_color`: Color for negative (decreasing) values.
+*   `total_color`: Color for the total bar.
 
 ### Word Cloud
 
-- `type`: Must be `looker_wordcloud`.
-- `rotation`: Enable random word rotation (`true`/`false`).
-- `colors`: An array of colors for the words.
-- `color_application`: Advanced color palette controls.
-- `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering.
+*   `type`: Must be `looker_wordcloud`.
+*   `rotation`: Enable random word rotation (`true`/`false`).
+*   `colors`: An array of colors for the words.
+*   `color_application`: Advanced color palette controls.
+*   `crossfilterEnabled`, `crossfilters`: Configuration for cross-filtering.
 
 These are some sample vis_config settings.
 
@@ -933,19 +935,21 @@ A Pie chart -
 The result is a JSON object with the id, slug, the url, and
 the long_url.
 
+
 #### Parameters
 
-| Name       | Type    | Description                                            | Required | Default |
-| :--------- | :------ | :----------------------------------------------------- | :------- | :------ |
-| model      | string  | The model containing the explore.                      | Yes      |         |
-| explore    | string  | The explore to be queried.                             | Yes      |         |
-| fields     | array   | The fields to be retrieved.                            | Yes      |         |
-| filters    | object  | The filters for the query                              | No       | `map[]` |
-| pivots     | array   | The query pivots (must be included in fields as well). | No       | `[]`    |
-| sorts      | array   | The sorts like "field.id desc 0".                      | No       | `[]`    |
-| limit      | integer | The row limit.                                         | No       | `500`   |
-| tz         | string  | The query timezone.                                    | No       |         |
-| vis_config | object  | The visualization config for the query                 | No       | `map[]` |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| model | string | The model containing the explore. | Yes |  |
+| explore | string | The explore to be queried. | Yes |  |
+| fields | array | The fields to be retrieved. | Yes |  |
+| filters | object | The filters for the query | No | `map[]` |
+| pivots | array | The query pivots (must be included in fields as well). | No | `[]` |
+| sorts | array | The sorts like "field.id desc 0". | No | `[]` |
+| limit | integer | The row limit. | No | `500` |
+| tz | string | The query timezone. | No |  |
+| vis_config | object | The visualization config for the query | No | `map[]` |
+
 
 ---
 
@@ -955,18 +959,19 @@ This tool executes the queries associated with each tile in a specified dashboar
 and returns the aggregated data in a JSON structure.
 
 Parameters:
-
 - dashboard_id (required): The unique identifier of the dashboard to run,
   typically obtained from the `get_dashboards` tool.
 
 Output:
 The data from all dashboard tiles is returned as a JSON object.
 
+
 #### Parameters
 
-| Name         | Type   | Description                     | Required | Default |
-| :----------- | :----- | :------------------------------ | :------- | :------ |
-| dashboard_id | string | The id of the dashboard to run. | Yes      |         |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| dashboard_id | string | The id of the dashboard to run. | Yes |  |
+
 
 ---
 
@@ -976,18 +981,20 @@ This tool executes the query associated with a saved Look and
 returns the resulting data in a JSON structure.
 
 Parameters:
-
 - look_id (required): The unique identifier of the Look to run,
   typically obtained from the `get_looks` tool.
 
 Output:
 The query results are returned as a JSON object.
 
+
 #### Parameters
 
-| Name    | Type    | Description                | Required | Default |
-| :------ | :------ | :------------------------- | :------- | :------ |
-| look_id | string  | The id of the look to run. | Yes      |         |
-| limit   | integer | The row limit. Default 500 | No       | `500`   |
+| Name | Type | Description | Required | Default |
+| :--- | :--- | :--- | :--- | :--- |
+| look_id | string | The id of the look to run. | Yes |  |
+| limit | integer | The row limit. Default 500 | No | `500` |
+
 
 ---
+
