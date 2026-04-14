@@ -27,7 +27,7 @@
       "title": "Client Secret",
       "description": "Client Secret of the Looker API",
       "type": "string",
-      "sensitive": true
+      "sensitive": false
     },
     "looker_verify_ssl": {
       "title": "Verify SSL",
