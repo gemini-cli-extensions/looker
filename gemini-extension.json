@@ -2,16 +2,6 @@
   "name": "looker",
   "version": "0.3.0",
   "description": "Connect to Looker",
-  "mcpServers": {
-    "looker": {
-      "command": "${extensionPath}${/}toolbox",
-      "args": [
-        "--prebuilt",
-        "looker,looker-dev",
-        "--stdio"
-      ]
-    }
-  },
   "contextFileName": "LOOKER.md",
   "settings": [
     {
