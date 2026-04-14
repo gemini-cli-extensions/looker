@@ -14,7 +14,7 @@ To install this extension, the Gemini CLI version must be v0.6.0 or above. The v
 
 This section covers connecting to a Looker instance.
 
-1.  **Extension Configuration**: This extension requires several settings (e.g., Base URL, Client ID, Client Secret). These values are gathered via prompts when you first install or link the extension:
+1.  **Verify Environment Variables**: Before attempting to connect, confirm with the user that the following environment variables are set in the extension configuration or their shell environment.
 
     *   `LOOKER_BASE_URL`: The base URL of your Looker instance.
     *   `LOOKER_CLIENT_ID`: The Looker API client ID.
