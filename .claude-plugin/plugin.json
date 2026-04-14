@@ -1,0 +1,57 @@
+{
+  "name": "looker",
+  "version": "0.3.0",
+  "description": "Connect to Looker and interact with your data using LookML.",
+  "author": {
+    "name": "Google LLC",
+    "email": "data-cloud-ai-integrations@google.com"
+  },
+  "homepage": "https://cloud.google.com/looker",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/gemini-cli-extensions/looker",
+  "skills": "./skills/",
+  "userConfig": {
+    "looker_base_url": {
+      "title": "Base URL",
+      "description": "URL of the Looker instance",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_client_id": {
+      "title": "Client ID",
+      "description": "Client ID of the Looker API",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_client_secret": {
+      "title": "Client Secret",
+      "description": "Client Secret of the Looker API",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_verify_ssl": {
+      "title": "Verify SSL",
+      "description": "(Optional) Boolean to verify SSL certificates",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_show_hidden_models": {
+      "title": "Show Hidden Models",
+      "description": "(Optional) Boolean to show hidden models",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_show_hidden_explores": {
+      "title": "Show Hidden Explores",
+      "description": "(Optional) Boolean to show hidden explores",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_show_hidden_fields": {
+      "title": "Show Hidden Fields",
+      "description": "(Optional) Boolean to show hidden fields",
+      "type": "string",
+      "sensitive": false
+    }
+  }
+}
