@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.1](https://github.com/gemini-cli-extensions/looker/compare/0.3.0...0.3.1) (2026-04-14)
+
+
+### Features
+
+* add claude code plugin config ([#119](https://github.com/gemini-cli-extensions/looker/issues/119)) ([fdfa71e](https://github.com/gemini-cli-extensions/looker/commit/fdfa71edf2bc612ecb3c8bb1c6e24cfec4210291))
+* add codex plugin config ([#120](https://github.com/gemini-cli-extensions/looker/issues/120)) ([d82977f](https://github.com/gemini-cli-extensions/looker/commit/d82977f6fa571de7bb8580b8337fbff72ce485f0))
+* add support for skills ([#117](https://github.com/gemini-cli-extensions/looker/issues/117)) ([1a25629](https://github.com/gemini-cli-extensions/looker/commit/1a25629924fced666b9d944e03b38e032f1d7c03))
+* remove packaging workflow ([#118](https://github.com/gemini-cli-extensions/looker/issues/118)) ([2339663](https://github.com/gemini-cli-extensions/looker/commit/23396633376f0a09eabfc85205f2e59b89fde8fd))
+
+
+### Bug Fixes
+
+* **knowledge-catalog:** Rename dataplex to knowledge-catalog across docs ([mcp-toolbox#​3039](https://redirect.github.com/googleapis/mcp-toolbox/pull/3039)) ([45c05e3](https://redirect.github.com/googleapis/mcp-toolbox/commit/24ce6ce3bc6468d2b4b11a86b90ea223daa7e6cf)) ([d99b1f1](https://github.com/gemini-cli-extensions/looker/commit/d99b1f1975ecb2b7e5f8db621672a47abacef631))
+* **looker:** Convert configuration yaml to flat format ([mcp-toolbox#​3022](https://redirect.github.com/googleapis/mcp-toolbox/issues/3022)) ([45c05e3](https://redirect.github.com/googleapis/mcp-toolbox/commit/45c05e37eac867c5a444d950bc51fdf1b1b687ea)) ([d99b1f1](https://github.com/gemini-cli-extensions/looker/commit/d99b1f1975ecb2b7e5f8db621672a47abacef631))
+
 ## [0.3.0](https://github.com/gemini-cli-extensions/looker/compare/0.2.4...0.3.0) (2026-04-10)
 
 
