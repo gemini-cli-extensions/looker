@@ -1,182 +1,234 @@
-# Gemini CLI Extension - Looker
+# Looker Agent Skills
 
 > [!NOTE]
-> This extension is currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
+> Currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
 
-This Gemini CLI extension provides a set of tools to interact with [Looker](https://cloud.google.com/looker/docs) instances. It allows you to manage your Looks, dashboards, and explores directly from the [Gemini CLI](https://google-gemini.github.io/gemini-cli/), using natural language prompts.
+This repository provides a set of agent skills to interact with [Looker](https://cloud.google.com/looker). These skills can be used with various AI agents, including [Gemini CLI](https://google-gemini.github.io/gemini-cli/), Claude Code, and Codex, to explore data, manage dashboards, and develop LookML using natural language prompts.
 
-Learn more about [Gemini CLI Extensions](https://github.com/google-gemini/gemini-cli/blob/main/docs/extensions/index.md).
 > [!IMPORTANT]
 > **We Want Your Feedback!**
-> Please share your thoughts with us by filling out our feedback [form][form]. 
+> Please share your thoughts with us by filling out our feedback [form][form].
 > Your input is invaluable and helps us improve the project for everyone.
 
 [form]: https://docs.google.com/forms/d/e/1FAIpQLSfEGmLR46iipyNTgwTmIDJqzkAwDPXxbocpXpUbHXydiN1RTw/viewform?usp=pp_url&entry.157487=looker
 
-## Why Use the Looker Extension?
+## Table of Contents
 
-* **Seamless Workflow:** Stay in your CLI. No need to constantly switch contexts.
-* **Connect to Looker:** Securely connect to your Looker instances.
-* **Natural Language Usage:** Stop wrestling with complex commands. List models, explores, and dimensions, and run Looks and queries by describing what you want in plain English.
+- [Why Use Looker Agent Skills?](#why-use-looker-agent-skills)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Configuration](#configuration)
+  - [Installation & Usage](#installation--usage)
+    - [Gemini CLI](#gemini-cli)
+    - [Claude Code](#claude-code)
+    - [Codex](#codex)
+    - [Antigravity](#antigravity)
+- [Usage Examples](#usage-examples)
+- [Supported Skills](#supported-skills)
+- [Troubleshooting](#troubleshooting)
 
+## Why Use Looker Agent Skills?
+
+- **Seamless Workflow:** Integrates seamlessly into your AI agent's environment. No need to constantly switch contexts for common Looker tasks.
+- **Natural Language Queries:** Stop wrestling with complex UI or LookML. Explore data and create content by describing what you want in plain English.
+- **Full Lifecycle Control:** Manage your Looker environment, from exploring models to creating dashboards and authoring LookML.
+- **Accelerate Development:** Speed up LookML development by asking your agent to generate or update files based on your requirements.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following:
 
-* [Gemini CLI](https://github.com/google-gemini/gemini-cli) installed with version **+v0.6.0**.
-* Setup Gemini CLI [Authentication](https://github.com/google-gemini/gemini-cli/tree/main?tab=readme-ov-file#-authentication-options).
-* A Looker instance with API access enabled.
-    You will need a Looker Client Id and Client Secret. These can be obtained by following the directions at [Looker API authentication](https://cloud.google.com/looker/docs/api-auth#authentication_with_an_sdk). If you don't have access to the Admin pages of the Looker system, you will need to ask your administrator to get the Id and Secret for you.
+- One of these AI agents installed
+  - [Gemini CLI](https://github.com/google-gemini/gemini-cli) version **v0.6.0** or higher
+  - [Claude Code](https://claude.com/product/claude-code) version **v2.1.94** or higher
+  - [Codex](https://developers.openai.com/codex) **v0.117.0** or higher
+  - [Antigravity](https://antigravity.google) **v1.14.2** or higher
+- A Looker instance and API credentials (Client ID and Client Secret).
 
 ## Getting Started
 
-### Installation
+### Configuration
 
-To install the extension, use the command:
+Please keep these env vars handy during the installation process:
+
+- `LOOKER_BASE_URL`: The base URL of your Looker instance.
+- `LOOKER_CLIENT_ID`: The Looker API client ID.
+- `LOOKER_CLIENT_SECRET`: The Looker API client secret.
+- `LOOKER_VERIFY_SSL`: (Optional) Whether to verify SSL certificates. Defaults to `true`.
+- `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show models that are hidden in the UI. Defaults to `true`.
+- `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show explores that are hidden in the UI. Defaults to `true`.
+- `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show fields that are hidden in the UI. Defaults to `true`.
+
+### Installation & Usage
+
+To start interacting with Looker, install the skills for your preferred AI agent, then launch the agent and use natural language to ask questions or perform tasks.
+
+For the latest version, check the [releases page][releases].
+
+[releases]: https://github.com/gemini-cli-extensions/looker/releases
+
+<!-- {x-release-please-start-version} -->
+
+<details open>
+<summary id="gemini-cli">Gemini CLI</summary>
+
+**1. Install the extension:**
 
 ```bash
 gemini extensions install https://github.com/gemini-cli-extensions/looker
 ```
 
-### Configuration
+During the installation, enter your environment vars as described in the [configuration section](#configuration).
 
-You will be prompted to configure the following settings during installation. These settings are saved in an `.env` file within the extension's directory.
+**2. (Optional) Manage Configuration:**
+To view or update your configuration in Gemini CLI:
 
-*   `LOOKER_BASE_URL`: The URL of your Looker instance (e.g. `https://looker.example.com`). You may need to add the port, i.e. `:19999`.
-*   `LOOKER_CLIENT_ID`: Your Looker Client ID.
-*   `LOOKER_CLIENT_SECRET`: Your Looker Client Secret.
-*   `LOOKER_VERIFY_SSL`: (Optional) Whether to verify SSL certificates. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show hidden models. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show hidden explores. Defaults to `true`.
-*   `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show hidden fields. Defaults to `true`.
+- Terminal: `gemini extensions config looker [setting name] [--scope <scope>]`
+- Gemini CLI: `/extensions list`
 
-To view or update your configuration:
-
-**List Settings:**
-*   Terminal: `gemini extensions list`
-*   Gemini CLI: `/extensions list`
-
-**Update Settings:**
-*   Terminal: `gemini extensions config looker [setting name] [--scope <scope>]`
-    *   `setting name`: (Optional) The single setting to configure.
-    *   `scope`: (Optional) The scope of the setting in (`user` or `workspace`). Defaults to `user`.
-*   Currently, you must restart the Gemini CLI for changes to take effect. We recommend using `gemini --resume` to resume your session.
-
-Alternatively, you can manually set these environment variables before starting the Gemini CLI:
-
-```bash
-export LOOKER_BASE_URL="<your-looker-instance-url>"  # e.g. `https://looker.example.com`. You may need to add the port, i.e. `:19999`.
-export LOOKER_CLIENT_ID="<your-looker-client-id>"
-export LOOKER_CLIENT_SECRET="<your-looker-client-secret>"
-export LOOKER_VERIFY_SSL="true" # Optional, defaults to true
-export LOOKER_SHOW_HIDDEN_MODELS="true" # Optional, defaults to true
-export LOOKER_SHOW_HIDDEN_EXPLORES="true" # Optional, defaults to true
-export LOOKER_SHOW_HIDDEN_FIELDS="true" # Optional, defaults to true
-```
-
-> [!NOTE]
-> * See [Troubleshooting](#troubleshooting) for debugging your configuration.
-
-### Start Gemini CLI
-
-To start the Gemini CLI, use the following command:
+**3. Start the agent:**
 
 ```bash
 gemini
 ```
 
-## Usage
-You can ask questions and give commands such as these:
+_(Tip: Run `/extensions list` to verify your configuration and active extensions.)_
 
-1. What models are available in my Looker instance?
-2. What explores are available in *model_name*?
-3. What measures and dimensions are in *explore_name*?
-4. Using *model_name*, what is the total revenue in 2025? Break that
-   down by month and pivot by product category.
-5. What is the sql for that last query?
-6. Visualize that data using a stacked column chart and give me the url to it.
-7. Save that as a Look.
-8. Run the Look titled "Revenue Projection".
-9. Create a dashboard analyzing sales for the year 2025.
+</details>
 
-## Supported Tools
+<details>
+<summary id="claude-code">Claude Code</summary>
 
-The full tool list is available in the [Prebuilt Tools Reference](https://mcp-toolbox.dev/integrations/looker/prebuilt-configs/).
+**1. Set env vars:**
+In your terminal, set your environment vars as described in the [configuration section](#configuration).
 
-The following tools are available to the LLM:
+**2. Start the agent:**
 
-### Looker Model and Query Tools
+```bash
+claude
+```
 
-These tools are used to get information about a Looker model
-and execute queries against that model.
+**3. Add the marketplace:**
 
-1. **get_models**: list the LookML models in Looker
-1. **get_explores**: list the explores in a given model
-1. **get_dimensions**: list the dimensions in a given explore
-1. **get_measures**: list the measures in a given explore
-1. **get_filters**: list the filters in a given explore
-1. **get_parameters**: list the parameters in a given explore
-1. **query**: Run a query and return the data
-1. **query_sql**: Return the SQL generated by Looker for a query
-1. **query_url**: Return a link to the query in Looker for further exploration
+```bash
+/plugin marketplace add https://github.com/gemini-cli-extensions/looker.git#0.3.0
+```
 
-### Looker Content Tools
+**4. Install the plugin:**
 
-These tools get saved content (Looks and Dashboards) from a Looker
-instance and create new saved content.
+```bash
+/plugin install looker@looker-marketplace
+```
 
-1. **get_looks**: Return the saved Looks that match a title or description
-1. **run_look**: Run a saved Look and return the data
-1. **make_look**: Create a saved Look in Looker and return the URL
-1. **get_dashboards**: Return the saved dashboards that match a title or description
-1. **run_dashboard**: Run a saved dashboard and return the data
-1. **make_dashboard**: Create a saved dashboard in Looker and return the URL
-1. **add_dashboard_filter**: Add a filter to a dashboard
-1. **add_dashboard_element**: Add a tile to a dashboard
+_(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)_
 
-### Looker Instance Health Tools
+</details>
 
-These tools offer the same health check algorithms that the popular
-CLI [Henry](https://github.com/looker-open-source/henry) offers.
+<details>
+<summary id="codex">Codex</summary>
 
-1. **health_pulse**: Check the health of a Looker intance
-1. **health_analyze**: Analyze the usage of a Looker object
-1. **health_vacuum**: Find LookML elements that might be unused
+**1. Clone the Repo:**
 
-### LookML Authoring Tools
+```bash
+git clone --branch 0.3.0 git@github.com:gemini-cli-extensions/looker.git
+```
 
-These tools allow enable the caller to write and modify LookML files
-as well as get the database schema needed to write LookML effectively.
+**2. Install the plugin:**
 
-1. **dev_mode**: Activate dev mode.
-1. **get_projects**: Get the list of LookML projects
-1. **get_project_files**: Get the list of files in a project
-1. **get_project_file**: Get the contents of a file in a project
-1. **create_project_file**: Create a file in a project
-1. **update_project_file**: Update the contents of a file in a project
-1. **delete_project_file**: Delete a file in a project
-1. **validate_project**: Validate a project
-1. **get_connections**: Get the list of connections
-1. **get_connection_schemas**: Get the list of schemas for a connection
-1. **get_connection_databases**: Get the list of databases for a connection
-1. **get_connection_tables**: Get the list of tables for a connection
-1. **get_connection_table_columns**: Get the list of columns for a table in a connection
+```bash
+mkdir -p ~/.codex/plugins
+cp -R /absolute/path/to/looker ~/.codex/plugins/looker
+```
 
-### Developer Tools
+**3. Set env vars:**
+Enter your environment vars as described in the [configuration section](#configuration).
 
-1. **generate_embed_url**: Generate an embed url for content.
+**4. Create or update marketplace.json:**
+`~/.agents/plugins/marketplace.json`
 
-## Additional Extensions
+```json
+{
+  "name": "my-data-cloud-google-marketplace",
+  "interface": {
+    "displayName": "Google Data Cloud Skills"
+  },
+  "plugins": [
+    {
+      "name": "looker",
+      "source": {
+        "source": "local",
+        "path": "./plugins/looker"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Data Analytics"
+    }
+  ]
+}
+```
 
-Find additional extensions to support your entire software development lifecycle at [github.com/gemini-cli-extensions](https://github.com/gemini-cli-extensions).
+_(Tip: Run `codex plugin list` or use the `/plugins` interactive menu to verify your installed plugins.)_
+
+</details>
+
+<details>
+<summary id="antigravity">Antigravity</summary>
+
+**1. Clone the Repo:**
+
+```bash
+git clone --branch 0.3.0 https://github.com/gemini-cli-extensions/looker.git
+```
+
+**2. Install the skills:**
+
+Choose a location for the skills:
+- **Global (all workspaces):** `~/.gemini/antigravity/skills/`
+- **Workspace-specific:** `<workspace-root>/.agents/skills/`
+
+Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
+
+```bash
+cp -R looker/skills/* ~/.gemini/antigravity/skills/
+```
+
+**3. Set env vars:**
+Set your environment vars as described in the [configuration section](#configuration).
+
+_(Tip: Antigravity automatically discovers skills in these directories at the start of a session.)_
+
+</details>
+
+<!-- {x-release-please-end} -->
+
+## Usage Examples
+
+Interact with Looker using natural language:
+
+- **Explore Data:**
+  - "Show me the top 10 products by sales in the last month."
+  - "What is the average order value by region?"
+- **Manage Content:**
+  - "Create a new dashboard titled 'Executive Overview' with tiles for revenue and user growth."
+  - "Find all dashboards related to 'Marketing' and list their tiles."
+- **Develop LookML:**
+  - "Create a new view for the 'users' table in the 'e-commerce' project."
+  - "Add a new measure 'total_revenue' to the 'orders' view."
+
+## Supported Skills
+
+The following skills are available in this repository:
+
+- [Looker](./skills/looker/SKILL.md) - These skills are designed for data discovery and business intelligence.
+- [Looker Development](./skills/looker-dev/SKILL.md) - These skills are built for LookML developers, data engineers, and administrators who manage the backbone of Looker.
 
 ## Troubleshooting
 
-Use `gemini --debug` to enable debugging.
+Use the debug mode of your agent (e.g., `gemini --debug`) to enable debugging.
 
 Common issues:
 
-* "✖ Error during discovery for server: MCP error -32000: Connection closed": The database connection has not been established. Ensure your configuration is set via environment variables.
-* "✖ MCP ERROR: Error: spawn /Users/USER/.gemini/extensions/cloud-sql-sqlserver/toolbox ENOENT": The Toolbox binary did not download correctly. Ensure you are using Gemini CLI v0.6.0+.
-* "cannot execute binary file": The Toolbox binary did not download correctly. Ensure the correct binary for your OS/Architecture has been downloaded. See [Installing the server](https://mcp-toolbox.dev/documentation/introduction/#install-toolbox) for more information.
+- "failed to find default credentials": Ensure your Looker API credentials are set correctly.
+- "✖ MCP ERROR: Error: spawn .../toolbox ENOENT": The Toolbox binary did not download correctly. Ensure you are using the latest version of your agent.
