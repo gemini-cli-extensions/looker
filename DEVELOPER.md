@@ -42,6 +42,8 @@ A GitHub Actions workflow (`.github/workflows/presubmit-tests.yml`) is triggered
 for every pull request. This workflow primarily verifies that the extension can
 be successfully installed by the Gemini CLI.
 
+All tools are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/mcp-toolbox).
+
 The skills themselves are validated using the `skills-validate.yml` workflow.
 
 ### Other GitHub Checks
