@@ -10,7 +10,7 @@ build content like dashboards and saved looks.
 
 To install this extension, the Gemini CLI version must be v0.6.0 or above. The version can be found by running: `gemini --version`.
 
-## Looker MCP Server
+## Looker Agent Skills
 
 This section covers connecting to a Looker instance.
 
@@ -23,6 +23,8 @@ This section covers connecting to a Looker instance.
     *   `LOOKER_SHOW_HIDDEN_MODELS`: (Optional) Whether to show models that are hidden in the UI. Defaults to `true`.
     *   `LOOKER_SHOW_HIDDEN_EXPLORES`: (Optional) Whether to show explores that are hidden in the UI. Defaults to `true`.
     *   `LOOKER_SHOW_HIDDEN_FIELDS`: (Optional) Whether to show fields that are hidden in the UI. Defaults to `true`.
+
+    If you need to update any of these values later, use the `gemini extensions config looker` command.
 
 2.  **Handle Missing Variables**: If a command fails with an error message containing a placeholder like `${LOOKER_BASE_URL}`, it signifies a missing environment variable. Inform the user which variable is missing and instruct them to set it.
 
