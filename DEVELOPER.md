@@ -73,17 +73,6 @@ are currently tested in the [MCP Toolbox GitHub](https://github.com/googleapis/m
 *   **Dependency Updates:** [Renovate](https://github.com/apps/forking-renovate)
     is configured to automatically create pull requests for dependency updates.
 
-## Building the Extension
-
-The "build" process for this extension involves packaging the extension's
-metadata files (`gemini-extension.json`, `looker.md`, `LICENSE`) along with the
-pre-built `toolbox` binary into platform-specific archives (`.tar.gz` or `.zip`).
-
-This process is handled automatically by the
-[`package-and-upload-assets.yml`](.github/workflows/package-and-upload-assets.yml)
-GitHub Actions workflow when a new release is created. Manual building is not
-required.
-
 ## Maintainer Information
 
 ### Team
@@ -138,8 +127,4 @@ The process is handled by the [`mirror-changelog.yml`](.github/workflows/mirror-
 2.  **Merge Release PR:** A maintainer approves and merges the Release PR. This
     action triggers `release-please` to create a new GitHub tag and a
     corresponding GitHub Release.
-3.  **Package and Upload:** The new release triggers the
-    `package-and-upload-assets.yml` workflow. This workflow builds the
-    platform-specific extension archives and uploads them as assets to the
-    GitHub Release.
 
