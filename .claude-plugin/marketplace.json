@@ -1,0 +1,16 @@
+{
+  "name": "looker-marketplace",
+  "owner": {
+    "name": "Google LLC",
+    "email": "data-cloud-ai-integrations@google.com"
+  },
+  "metadata": {
+    "description": "Agent skills for Looker to explore data, manage dashboards, and develop LookML."
+  },
+  "plugins": [
+    {
+      "name": "looker",
+      "source": "./"
+    }
+  ]
+}
