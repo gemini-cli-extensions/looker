@@ -21,7 +21,7 @@ Note: The scripts automatically load the environment variables from various .env
 
 ### create_git_branch
 
-This tool is used to create a new git branch of a LookML project. This only works in dev mode.
+This skill is used to create a new git branch of a LookML project. This only works in dev mode.
 
 Parameters:
 - project_id (required): The unique ID of the LookML project.
@@ -42,7 +42,7 @@ Parameters:
 
 ### create_project_directory
 
-This tool creates a new directory within a specified LookML project.
+This skill creates a new directory within a specified LookML project.
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
 
@@ -66,7 +66,7 @@ A confirmation message upon successful directory creation.
 
 ### create_project_file
 
-This tool creates a new LookML file within a specified project, populating
+This skill creates a new LookML file within a specified project, populating
 it with the provided content.
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
@@ -93,7 +93,7 @@ A confirmation message upon successful file creation.
 
 ### create_view_from_table
 
-This tool generates boilerplate LookML views directly from the database schema.
+This skill generates boilerplate LookML views directly from the database schema.
 It does not create model or explore files, only view files in the specified folder.
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
@@ -128,7 +128,7 @@ A confirmation message upon successful view generation, or an error message if t
 
 ### delete_git_branch
 
-This tool is used to delete a git branch of a LookML project. This only works in dev mode.
+This skill is used to delete a git branch of a LookML project. This only works in dev mode.
 
 Parameters:
 - project_id (required): The unique ID of the LookML project.
@@ -147,7 +147,7 @@ Parameters:
 
 ### delete_project_directory
 
-This tool permanently deletes a specified directory within a LookML project.
+This skill permanently deletes a specified directory within a LookML project.
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
 
@@ -171,7 +171,7 @@ A confirmation message upon successful directory deletion.
 
 ### delete_project_file
 
-This tool permanently deletes a specified LookML file from within a project.
+This skill permanently deletes a specified LookML file from within a project.
 Use with caution, as this action cannot be undone through the API.
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
@@ -196,7 +196,7 @@ A confirmation message upon successful file deletion.
 
 ### dev_mode
 
-This tool allows toggling the Looker IDE session between Development Mode and Production Mode.
+This skill allows toggling the Looker IDE session between Development Mode and Production Mode.
 Development Mode enables making and testing changes to LookML projects.
 
 Parameters:
@@ -216,7 +216,7 @@ Parameters:
 
 ### get_connection_databases
 
-This tool retrieves a list of databases available through a specified Looker connection.
+This skill retrieves a list of databases available through a specified Looker connection.
 This is only applicable for connections that support multiple databases.
 Use `get_connections` to check if a connection supports multiple databases.
 
@@ -239,7 +239,7 @@ If the connection does not support multiple databases, an empty list or an error
 
 ### get_connection_schemas
 
-This tool retrieves a list of database schemas available through a specified
+This skill retrieves a list of database schemas available through a specified
 Looker connection.
 
 Parameters:
@@ -263,7 +263,7 @@ A JSON array of strings, where each string is the name of an available schema.
 
 ### get_connection_table_columns
 
-This tool retrieves a list of columns for one or more specified tables within a
+This skill retrieves a list of columns for one or more specified tables within a
 given database schema and connection.
 
 Parameters:
@@ -293,7 +293,7 @@ such as `table_name`, `column_name`, `data_type`, and `is_nullable`.
 
 ### get_connection_tables
 
-This tool retrieves a list of tables available within a specified database schema
+This skill retrieves a list of tables available within a specified database schema
 through a Looker connection.
 
 Parameters:
@@ -319,10 +319,10 @@ A JSON array of strings, where each string is the name of an available table.
 
 ### get_connections
 
-This tool retrieves a list of all database connections configured in the Looker system.
+This skill retrieves a list of all database connections configured in the Looker system.
 
 Parameters:
-This tool takes no parameters.
+This skill takes no parameters.
 
 Output:
 A JSON array of objects, each representing a database connection and including details such as:
@@ -339,7 +339,7 @@ A JSON array of objects, each representing a database connection and including d
 
 ### get_git_branch
 
-This tool is used to retrieve the current git branch of a LookML project.
+This skill is used to retrieve the current git branch of a LookML project.
 
 Parameters:
 - project_id (required): The unique ID of the LookML project.
@@ -386,7 +386,7 @@ A JSON array of LookML test objects, each containing:
 
 ### get_project_directories
 
-This tool retrieves the list of directories within a specified LookML project.
+This skill retrieves the list of directories within a specified LookML project.
 
 Parameters:
 - project_id (required): The unique ID of the LookML project.
@@ -406,7 +406,7 @@ A JSON array of strings, where each string is the name of a directory within the
 
 ### get_project_file
 
-This tool retrieves the raw content of a specific LookML file from within a project.
+This skill retrieves the raw content of a specific LookML file from within a project.
 
 Parameters:
 - project_id (required): The unique ID of the LookML project, obtained from `get_projects`.
@@ -429,7 +429,7 @@ The raw text content of the specified LookML file.
 
 ### get_project_files
 
-This tool retrieves a list of all LookML files within a specified project,
+This skill retrieves a list of all LookML files within a specified project,
 providing details about each file.
 
 Parameters:
@@ -451,12 +451,12 @@ details such as `path`, `id`, `type`, and `git_status`.
 
 ### get_projects
 
-This tool retrieves a list of all LookML projects available on the Looker instance.
+This skill retrieves a list of all LookML projects available on the Looker instance.
 It is useful for identifying projects before performing actions like retrieving
 project files or making modifications.
 
 Parameters:
-This tool takes no parameters.
+This skill takes no parameters.
 
 Output:
 A JSON array of objects, each containing the `project_id` and `project_name`
@@ -469,7 +469,7 @@ for a LookML project.
 
 ### health_analyze
 
-This tool calculates the usage statistics for Looker projects, models, and explores.
+This skill calculates the usage statistics for Looker projects, models, and explores.
 
 Parameters:
 - action (required): The type of resource to analyze. Can be `"projects"`, `"models"`, or `"explores"`.
@@ -499,7 +499,7 @@ The result is a JSON object containing usage metrics for the specified resources
 
 ### health_pulse
 
-This tool performs various health checks on a Looker instance.
+This skill performs various health checks on a Looker instance.
 
 Parameters:
 - action (required): Specifies the type of health check to perform.
@@ -528,7 +528,7 @@ This notice should be considered normal behavior and not an indication of an iss
 
 ### health_vacuum
 
-This tool identifies and suggests LookML models or explores that can be
+This skill identifies and suggests LookML models or explores that can be
 safely removed due to inactivity or low usage.
 
 Parameters:
@@ -559,7 +559,7 @@ A JSON array of objects, each representing a model or explore that is a candidat
 
 ### list_git_branches
 
-This tool is used to retrieve the list of available git branches of a LookML project.
+This skill is used to retrieve the list of available git branches of a LookML project.
 
 Parameters:
 - project_id (required): The unique ID of the LookML project.
@@ -576,7 +576,7 @@ Parameters:
 
 ### run_lookml_tests
 
-This tool runs LookML tests in the project, filtered by file, test, and/or model. These filters work in conjunction (logical AND).
+This skill runs LookML tests in the project, filtered by file, test, and/or model. These filters work in conjunction (logical AND).
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
 
@@ -611,7 +611,7 @@ A JSON array containing the results of the executed tests, where each object inc
 
 ### switch_git_branch
 
-This tool is used to switch the git branch of a LookML project. This only works in dev mode.
+This skill is used to switch the git branch of a LookML project. This only works in dev mode.
 
 Parameters:
 - project_id (required): The unique ID of the LookML project.
@@ -632,7 +632,7 @@ Parameters:
 
 ### update_project_file
 
-This tool modifies the content of an existing LookML file within a specified project.
+This skill modifies the content of an existing LookML file within a specified project.
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
 
@@ -658,7 +658,7 @@ A confirmation message upon successful file modification.
 
 ### validate_project
 
-This tool checks a LookML project for syntax errors.
+This skill checks a LookML project for syntax errors.
 
 Prerequisite: The Looker session must be in Development Mode. Use `dev_mode: true` first.
 

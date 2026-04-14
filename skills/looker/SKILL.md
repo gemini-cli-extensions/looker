@@ -21,25 +21,25 @@ Note: The scripts automatically load the environment variables from various .env
 
 ### add_dashboard_element
 
-This tool creates a new tile (element) within an existing Looker dashboard.
-Tiles are added in the order this tool is called for a given `dashboard_id`.
+This skill creates a new tile (element) within an existing Looker dashboard.
+Tiles are added in the order this skill is called for a given `dashboard_id`.
 
 CRITICAL ORDER OF OPERATIONS:
 1. Create the dashboard using `make_dashboard`.
 2. Add any dashboard-level filters using `add_dashboard_filter`.
-3. Then, add elements (tiles) using this tool.
+3. Then, add elements (tiles) using this skill.
 
 Required Parameters:
 - dashboard_id: The ID of the target dashboard, obtained from `make_dashboard`.
 - model_name, explore_name, fields: These query parameters are inherited
-  from the `query` tool and are required to define the data for the tile.
+  from the `query` skill and are required to define the data for the tile.
 
 Optional Parameters:
 - title: An optional title for the dashboard tile.
 - pivots, filters, sorts, limit, query_timezone: These query parameters are
-  inherited from the `query` tool and can be used to customize the tile's query.
+  inherited from the `query` skill and can be used to customize the tile's query.
 - vis_config: A JSON object defining the visualization settings for this tile.
-  The structure and options are the same as for the `query_url` tool's `vis_config`.
+  The structure and options are the same as for the `query_url` skill's `vis_config`.
 
 Connecting to Dashboard Filters:
 A dashboard element can be connected to one or more dashboard filters (created with
@@ -70,11 +70,11 @@ The format for specifying the field is `view_name.field_name`.
 
 ### add_dashboard_filter
 
-This tool adds a filter to a Looker dashboard.
+This skill adds a filter to a Looker dashboard.
 
 CRITICAL ORDER OF OPERATIONS:
 1. Create a dashboard using `make_dashboard`.
-2. Add all desired filters using this tool (`add_dashboard_filter`).
+2. Add all desired filters using this skill (`add_dashboard_filter`).
 3. Finally, add dashboard elements (tiles) using `add_dashboard_element`.
 
 Parameters:
@@ -112,7 +112,7 @@ The filter will inherit suggestions and type information from this LookML field.
 
 ### generate_embed_url
 
-This tool generates a signed, private embed URL for specific Looker content,
+This skill generates a signed, private embed URL for specific Looker content,
 allowing users to access it directly.
 
 Parameters:
@@ -137,7 +137,7 @@ Parameters:
 
 ### get_dashboards
 
-This tool searches for saved dashboards in a Looker instance. It returns a list of JSON objects, each representing a dashboard.
+This skill searches for saved dashboards in a Looker instance. It returns a list of JSON objects, each representing a dashboard.
 
 Search Parameters:
 - title (optional): Filter by dashboard title (supports wildcards).
@@ -172,7 +172,7 @@ String Search Behavior:
 
 ### get_dimensions
 
-This tool retrieves a list of dimensions defined within a specific Looker explore.
+This skill retrieves a list of dimensions defined within a specific Looker explore.
 Dimensions are non-aggregatable attributes or characteristics of your data
 (e.g., product name, order date, customer city) that can be used for grouping,
 filtering, or segmenting query results.
@@ -200,7 +200,7 @@ Output Details:
 
 ### get_explores
 
-This tool retrieves a list of explores defined within a specific LookML model.
+This skill retrieves a list of explores defined within a specific LookML model.
 Explores represent a curated view of your data, typically joining several
 tables together to allow for focused analysis on a particular subject area.
 The output provides details like the explore's `name` and `label`.
@@ -220,14 +220,14 @@ Parameters:
 
 ### get_filters
 
-This tool retrieves a list of "filter-only fields" defined within a specific
+This skill retrieves a list of "filter-only fields" defined within a specific
 Looker explore. These are special fields defined in LookML specifically to
 create user-facing filter controls that do not directly affect the `GROUP BY`
 clause of the SQL query. They are often used in conjunction with liquid templating
 to create dynamic queries.
 
 Note: Regular dimensions and measures can also be used as filters in a query.
-This tool *only* returns fields explicitly defined as `filter:` in LookML.
+This skill *only* returns fields explicitly defined as `filter:` in LookML.
 
 Parameters:
 - model_name (required): The name of the LookML model, obtained from `get_models`.
@@ -246,7 +246,7 @@ Parameters:
 
 ### get_looks
 
-This tool searches for saved Looks (pre-defined queries and visualizations)
+This skill searches for saved Looks (pre-defined queries and visualizations)
 in a Looker instance. It returns a list of JSON objects, each representing a Look.
 
 Search Parameters:
@@ -282,7 +282,7 @@ String Search Behavior:
 
 ### get_measures
 
-This tool retrieves a list of measures defined within a specific Looker explore.
+This skill retrieves a list of measures defined within a specific Looker explore.
 Measures are aggregatable metrics (e.g., total sales, average price, count of users)
 that are used for calculations and quantitative analysis in your queries.
 
@@ -309,12 +309,12 @@ Output Details:
 
 ### get_models
 
-This tool retrieves a list of available LookML models in the Looker instance.
+This skill retrieves a list of available LookML models in the Looker instance.
 LookML models define the data structure and relationships that users can query.
 The output includes details like the model's `name` and `label`, which are
-essential for subsequent calls to tools like `get_explores` or `query`.
+essential for subsequent calls to skills like `get_explores` or `query`.
 
-This tool takes no parameters.
+This skill takes no parameters.
 
 
 
@@ -323,7 +323,7 @@ This tool takes no parameters.
 
 ### get_parameters
 
-This tool retrieves a list of parameters defined within a specific Looker explore.
+This skill retrieves a list of parameters defined within a specific Looker explore.
 LookML parameters are dynamic input fields that allow users to influence query
 behavior without directly modifying the underlying LookML. They are often used
 with `liquid` templating to create flexible dashboards and reports, enabling
@@ -346,7 +346,7 @@ Parameters:
 
 ### make_dashboard
 
-This tool creates a new, empty dashboard in Looker. Dashboards are stored
+This skill creates a new, empty dashboard in Looker. Dashboards are stored
 in the user's personal folder, and the dashboard name must be unique.
 After creation, use `add_dashboard_filter` to add filters and
 `add_dashboard_element` to add content tiles.
@@ -374,7 +374,7 @@ its unique `id`. This `dashboard_id` is crucial for subsequent calls to
 
 ### make_look
 
-This tool creates a new Look (saved query with visualization) in Looker.
+This skill creates a new Look (saved query with visualization) in Looker.
 The Look will be saved in the user's personal folder, and its name must be unique.
 
 Required Parameters:
@@ -386,9 +386,9 @@ Required Parameters:
 
 Optional Parameters:
 - pivots, filters, sorts, limit, query_timezone: These parameters are identical
-  to those described for the `query` tool.
+  to those described for the `query` skill.
 - vis_config: A JSON object defining the visualization settings for the Look.
-  The structure and options are the same as for the `query_url` tool's `vis_config`.
+  The structure and options are the same as for the `query_url` skill's `vis_config`.
 
 Output:
 A JSON object containing a link (`url`) to the newly created Look, along with its `id` and `slug`.
@@ -416,7 +416,7 @@ A JSON object containing a link (`url`) to the newly created Look, along with it
 
 ### query
 
-This tool runs a query against a LookML model and returns the results in JSON format.
+This skill runs a query against a LookML model and returns the results in JSON format.
 
 Required Parameters:
 - model_name: The name of the LookML model (from `get_models`).
@@ -454,17 +454,17 @@ Note: Use `get_dimensions`, `get_measures`, `get_filters`, and `get_parameters` 
 
 ### query_sql
 
-This tool generates the underlying SQL query that Looker would execute
+This skill generates the underlying SQL query that Looker would execute
 against the database for a given set of parameters. It is useful for
 understanding how Looker translates a request into SQL.
 
 Parameters:
-All parameters for this tool are identical to those of the `query` tool.
+All parameters for this skill are identical to those of the `query` skill.
 This includes `model_name`, `explore_name`, `fields` (required),
 and optional parameters like `pivots`, `filters`, `sorts`, `limit`, and `query_timezone`.
 
 Output:
-The result of this tool is the raw SQL text.
+The result of this skill is the raw SQL text.
 
 
 #### Parameters
@@ -485,13 +485,13 @@ The result of this tool is the raw SQL text.
 
 ### query_url
 
-This tool generates a shareable URL for a Looker query, allowing users to
+This skill generates a shareable URL for a Looker query, allowing users to
 explore the query further within the Looker UI. It returns the generated URL,
 along with the `query_id` and `slug`.
 
 Parameters:
 All query parameters (e.g., `model_name`, `explore_name`, `fields`, `pivots`,
-`filters`, `sorts`, `limit`, `query_timezone`) are the same as the `query` tool.
+`filters`, `sorts`, `limit`, `query_timezone`) are the same as the `query` skill.
 
 Additionally, it accepts an optional `vis_config` parameter:
 - vis_config (optional): A JSON object that controls the default visualization
@@ -955,12 +955,12 @@ the long_url.
 
 ### run_dashboard
 
-This tool executes the queries associated with each tile in a specified dashboard
+This skill executes the queries associated with each tile in a specified dashboard
 and returns the aggregated data in a JSON structure.
 
 Parameters:
 - dashboard_id (required): The unique identifier of the dashboard to run,
-  typically obtained from the `get_dashboards` tool.
+  typically obtained from the `get_dashboards` skill.
 
 Output:
 The data from all dashboard tiles is returned as a JSON object.
@@ -977,12 +977,12 @@ The data from all dashboard tiles is returned as a JSON object.
 
 ### run_look
 
-This tool executes the query associated with a saved Look and
+This skill executes the query associated with a saved Look and
 returns the resulting data in a JSON structure.
 
 Parameters:
 - look_id (required): The unique identifier of the Look to run,
-  typically obtained from the `get_looks` tool.
+  typically obtained from the `get_looks` skill.
 
 Output:
 The query results are returned as a JSON object.
