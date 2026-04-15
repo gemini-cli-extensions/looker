@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.2](https://github.com/gemini-cli-extensions/looker/compare/0.3.1...0.3.2) (2026-04-15)
+
+
+### Bug Fixes
+
+* update versions ([#123](https://github.com/gemini-cli-extensions/looker/issues/123)) ([664dd2b](https://github.com/gemini-cli-extensions/looker/commit/664dd2b77632eadcc0ab28820340d0ec9f67f410))
+
 ## [0.3.1](https://github.com/gemini-cli-extensions/looker/compare/0.3.0...0.3.1) (2026-04-14)
 
 
