@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.3.3](https://github.com/gemini-cli-extensions/looker/compare/0.3.2...0.3.3) (2026-05-11)
+
+
+### Features
+
+* Add support for HTTPS/TLS listener ([mcp-toolbox#​3126](https://redirect.github.com/googleapis/mcp-toolbox/issues/3126)) ([8bc385d](https://redirect.github.com/googleapis/mcp-toolbox/commit/8bc385d7d6fd9ed2ad13503d9feb503de0b512b1)) ([51b0af6](https://github.com/gemini-cli-extensions/looker/commit/51b0af60a26223ab501fbccd4159c2356f3b4206))
+
+
+### Bug Fixes
+
+* **mcp:** Implement router-level logger injection for MCP auth ([mcp-toolbox#​3067](https://redirect.github.com/googleapis/mcp-toolbox/issues/3067)) ([ccc7cf5](https://redirect.github.com/googleapis/mcp-toolbox/commit/ccc7cf5ee8a1bacb6b57faf41ae5a1cc3da5299e)) ([51b0af6](https://github.com/gemini-cli-extensions/looker/commit/51b0af60a26223ab501fbccd4159c2356f3b4206))
+* **tool/looker-conversational-analytics:** OAuth token in GDA payload fix ([mcp-toolbox#​3058](https://redirect.github.com/googleapis/mcp-toolbox/issues/3058)) ([6632d96](https://redirect.github.com/googleapis/mcp-toolbox/commit/6632d96724c5076ee44eb248d7de5c7d2d80d7b1)) ([51b0af6](https://github.com/gemini-cli-extensions/looker/commit/51b0af60a26223ab501fbccd4159c2356f3b4206))
+* **tools/looker:** Fix OAuth for Converational Analytics ([mcp-toolbox#​3044](https://redirect.github.com/googleapis/mcp-toolbox/issues/3044)) ([f9e3e55](https://redirect.github.com/googleapis/mcp-toolbox/commit/f9e3e55d42ae9f5d1ecbda4fb7c9a4f3d42451b1)) ([51b0af6](https://github.com/gemini-cli-extensions/looker/commit/51b0af60a26223ab501fbccd4159c2356f3b4206))
+* Allow converting string literal block with list ([mcp-toolbox#​3050](https://redirect.github.com/googleapis/mcp-toolbox/issues/3050)) ([36ab2a9](https://redirect.github.com/googleapis/mcp-toolbox/commit/36ab2a98f9f2d03c27eea389d2281bfc4581ffa1)), closes [mcp-toolbox#​3023](https://redirect.github.com/googleapis/mcp-toolbox/issues/3023) ([51b0af6](https://github.com/gemini-cli-extensions/looker/commit/51b0af60a26223ab501fbccd4159c2356f3b4206))
+* Prevent test.db from being created during unit tests ([mcp-toolbox#​3042](https://redirect.github.com/googleapis/mcp-toolbox/issues/3042)) ([d10d2ca](https://redirect.github.com/googleapis/mcp-toolbox/commit/d10d2caeb7c9eda7d17d6dbd9f63363b2bc23a7a)) ([51b0af6](https://github.com/gemini-cli-extensions/looker/commit/51b0af60a26223ab501fbccd4159c2356f3b4206))
+* Remove hardcoded \* allowed origin for sse ([mcp-toolbox#​3054](https://redirect.github.com/googleapis/mcp-toolbox/issues/3054)) ([c4c7bd9](https://redirect.github.com/googleapis/mcp-toolbox/commit/c4c7bd917e686de68e2be866cfe3872c3439efae)) ([51b0af6](https://github.com/gemini-cli-extensions/looker/commit/51b0af60a26223ab501fbccd4159c2356f3b4206))
+
 ## [0.3.2](https://github.com/gemini-cli-extensions/looker/compare/0.3.1...0.3.2) (2026-04-15)
 
 
