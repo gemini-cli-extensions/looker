@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.4](https://github.com/gemini-cli-extensions/looker/compare/0.3.3...0.3.4) (2026-05-22)
+
+
+### Features
+
+* **deps:** update dependency googleapis/mcp-toolbox to v1.3.0 ([#128](https://github.com/gemini-cli-extensions/looker/issues/128)) ([97db429](https://github.com/gemini-cli-extensions/looker/commit/97db4299a352254798e59ddd141eb5e019c958a0))
+
 ## [0.3.3](https://github.com/gemini-cli-extensions/looker/compare/0.3.2...0.3.3) (2026-05-11)
 
 
