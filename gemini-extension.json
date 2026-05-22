@@ -1,6 +1,6 @@
 {
   "name": "looker",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Connect to Looker",
   "contextFileName": "LOOKER.md",
   "settings": [
