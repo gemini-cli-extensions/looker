@@ -3,7 +3,7 @@
 > [!NOTE]
 > Currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
 
-This repository provides a set of agent skills to interact with [Looker](https://cloud.google.com/looker). These skills can be used with various AI agents, including [Gemini CLI](https://google-gemini.github.io/gemini-cli/), Claude Code, and Codex, to explore data, manage dashboards, and develop LookML using natural language prompts.
+This repository provides a set of agent skills to interact with [Looker](https://cloud.google.com/looker). These skills can be used with various AI agents, including [Antigravity](https://antigravity.google/), [Claude Code](https://claude.com/product/claude-code) and [Codex](https://developers.openai.com/codex), to explore data, manage dashboards, and develop LookML using natural language prompts.
 
 > [!IMPORTANT]
 > **We Want Your Feedback!**
@@ -19,10 +19,9 @@ This repository provides a set of agent skills to interact with [Looker](https:/
 - [Getting Started](#getting-started)
   - [Configuration](#configuration)
   - [Installation & Usage](#installation--usage)
-    - [Gemini CLI](#gemini-cli)
+    - [Antigravity](#antigravity)
     - [Claude Code](#claude-code)
     - [Codex](#codex)
-    - [Antigravity](#antigravity)
 - [Usage Examples](#usage-examples)
 - [Supported Skills](#supported-skills)
 - [Troubleshooting](#troubleshooting)
@@ -39,10 +38,11 @@ This repository provides a set of agent skills to interact with [Looker](https:/
 Before you begin, ensure you have the following:
 
 - One of these AI agents installed
-  - [Gemini CLI](https://github.com/google-gemini/gemini-cli) version **v0.6.0** or higher
-  - [Claude Code](https://claude.com/product/claude-code) version **v2.1.94** or higher
-  - [Codex](https://developers.openai.com/codex) **v0.117.0** or higher
-  - [Antigravity](https://antigravity.google) **v1.14.2** or higher
+  - Antigravity
+     - [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v1.6.0** or higher
+     - [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v2.0.0** or higher.
+  - [Claude Code](https://claude.com/product/claude-code) version **v2.1.94** or higher.
+  - [Codex](https://developers.openai.com/codex) **v0.117.0** or higher.
 - A Looker instance and API credentials (Client ID and Client Secret).
 
 ## Getting Started
@@ -70,29 +70,73 @@ For the latest version, check the [releases page][releases].
 <!-- {x-release-please-start-version} -->
 
 <details open>
-<summary id="gemini-cli">Gemini CLI</summary>
+<summary id="antigravity">Antigravity</summary>
 
-**1. Install the extension:**
+You can use either of these two agents for Antigravity:
+- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v1.6.0** or higher
+- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v2.0.0** or higher.
+
+<blockquote>
+💡 <strong>Tip — Migrating from Gemini CLI?</strong><br>
+If you previously installed this extension with <code>gemini extensions install</code>, you can convert it to an Antigravity plugin instead of reinstalling from scratch:
+<ul>
+  <li><strong>On first launch of Antigravity CLI</strong>, accept the Migration Options prompt to automatically convert your installed Gemini CLI extensions to Antigravity plugins.</li>
+  <li><strong>Or, from your terminal</strong>, run:
+    <pre><code class="language-bash">agy plugin import gemini</code></pre>
+  </li>
+</ul>
+See <a href="https://antigravity.google/docs/gcli-migration">Migrating from Gemini CLI</a> for details on plugins, context files (<code>GEMINI.md</code> / <code>AGENTS.md</code>), and MCP server config differences.
+</blockquote>
+
+#### Antigravity 2.0 (IDE)
+
+**1. Clone the Repo:**
 
 ```bash
-gemini extensions install https://github.com/gemini-cli-extensions/looker
+git clone --branch 0.3.4 https://github.com/gemini-cli-extensions/looker.git
 ```
 
-During the installation, enter your environment vars as described in the [configuration section](#configuration).
+**2. Install the skills:**
 
-**2. (Optional) Manage Configuration:**
-To view or update your configuration in Gemini CLI:
+Choose a location for the skills:
+- **Global (all workspaces):** `~/.gemini/antigravity/skills/`
+- **Workspace-specific:** `<workspace-root>/.agents/skills/`
 
-- Terminal: `gemini extensions config looker [setting name] [--scope <scope>]`
-- Gemini CLI: `/extensions list`
-
-**3. Start the agent:**
+Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
 
 ```bash
-gemini
+cp -R looker/skills/* ~/.gemini/antigravity/skills/
 ```
 
-_(Tip: Run `/extensions list` to verify your configuration and active extensions.)_
+**3. Set env vars:**
+Set your environment vars as described in the [configuration section](#configuration).
+
+_(Tip: Antigravity 2.0 automatically discovers skills in these directories at the start of a session. You can verify they are active by running the `/skills` command in your active session.)_
+
+#### Antigravity CLI
+
+**1. Clone the Repo:**
+
+```bash
+git clone --branch 0.3.4 https://github.com/gemini-cli-extensions/looker.git
+```
+
+**2. Install the skills:**
+
+Choose a location for the skills:
+- **Global (all workspaces):** `~/.gemini/antigravity-cli/skills/`
+- **Workspace-specific:** `<workspace-root>/.agents/skills/`
+
+Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
+
+```bash
+cp -R looker/skills/* ~/.gemini/antigravity-cli/skills/
+```
+
+**3. Set env vars:**
+Set your environment vars as described in the [configuration section](#configuration).
+
+_(Tip: Antigravity CLI automatically discovers skills in these directories at the start of a session. You can verify they are active by running the `/skills` command in your active session.)_
 
 </details>
 
@@ -172,34 +216,20 @@ Enter your environment vars as described in the [configuration section](#configu
 _(Tip: Run `codex plugin list` or use the `/plugins` interactive menu to verify your installed plugins.)_
 
 </details>
+## Installing using [open agent skills tool](https://github.com/vercel-labs/skills)
 
-<details>
-<summary id="antigravity">Antigravity</summary>
+You can install skills using the `npx skills` command.
 
-**1. Clone the Repo:**
-
-```bash
-git clone --branch 0.3.4 https://github.com/gemini-cli-extensions/looker.git
-```
-
-**2. Install the skills:**
-
-Choose a location for the skills:
-- **Global (all workspaces):** `~/.gemini/antigravity/skills/`
-- **Workspace-specific:** `<workspace-root>/.agents/skills/`
-
-Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
+Run the following command in your terminal to automatically download and register the skills:
 
 ```bash
-cp -R looker/skills/* ~/.gemini/antigravity/skills/
+npx skills add https://github.com/gemini-cli-extensions/looker/tree/0.3.4
 ```
 
-**3. Set env vars:**
+For detailed info check out the [Skills npm package](https://www.npmjs.com/package/skills).
+
+**2. Set env vars:**
 Set your environment vars as described in the [configuration section](#configuration).
-
-_(Tip: Antigravity automatically discovers skills in these directories at the start of a session.)_
-
-</details>
 
 <!-- {x-release-please-end} -->
 
