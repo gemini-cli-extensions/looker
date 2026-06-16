@@ -152,16 +152,10 @@ In your terminal, set your environment vars as described in the [configuration s
 claude
 ```
 
-**3. Add the marketplace:**
+**3. Install the plugin:**
 
 ```bash
-/plugin marketplace add https://github.com/gemini-cli-extensions/looker.git#0.3.5
-```
-
-**4. Install the plugin:**
-
-```bash
-/plugin install looker@looker-marketplace
+/plugin install looker@claude-plugins-official
 ```
 
 _(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)_
