@@ -216,9 +216,12 @@ Enter your environment vars as described in the [configuration section](#configu
 _(Tip: Run `codex plugin list` or use the `/plugins` interactive menu to verify your installed plugins.)_
 
 </details>
+
 ## Installing using [open agent skills tool](https://github.com/vercel-labs/skills)
 
 You can install skills using the `npx skills` command.
+
+**1. Install the skills:**
 
 Run the following command in your terminal to automatically download and register the skills:
 
