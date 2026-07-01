@@ -73,8 +73,8 @@ For the latest version, check the [releases page][releases].
 <summary id="antigravity">Antigravity</summary>
 
 You can use either of these two agents for Antigravity:
-- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.3.6** or higher
-- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.3.6** or higher.
+- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.3.7** or higher
+- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.3.7** or higher.
 
 <blockquote>
 💡 <strong>Tip — Migrating from Gemini CLI?</strong><br>
@@ -93,7 +93,7 @@ See <a href="https://antigravity.google/docs/gcli-migration">Migrating from Gemi
 **1. Clone the Repo:**
 
 ```bash
-git clone --branch 0.3.6 https://github.com/gemini-cli-extensions/looker.git
+git clone --branch 0.3.7 https://github.com/gemini-cli-extensions/looker.git
 ```
 
 **2. Install the skills:**
@@ -115,6 +115,13 @@ _(Tip: Antigravity 2.0 automatically discovers skills in these directories at th
 
 #### Antigravity CLI
 
+**1. Clone the Repo:**
+
+```bash
+git clone --branch 0.3.7 https://github.com/gemini-cli-extensions/looker.git
+```
+
+**2. Install the skills:**
 You can install plugins directly from a remote GitHub repository.
 
 **1. Install the plugin:**
@@ -185,7 +192,7 @@ You can install skills using the `npx skills` command.
 Run the following command in your terminal to automatically download and register the skills:
 
 ```bash
-npx skills add https://github.com/gemini-cli-extensions/looker/tree/0.3.6
+npx skills add https://github.com/gemini-cli-extensions/looker/tree/0.3.7
 ```
 
 For detailed info check out the [Skills npm package](https://www.npmjs.com/package/skills).
