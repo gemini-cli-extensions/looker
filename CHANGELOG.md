@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.7](https://github.com/gemini-cli-extensions/looker/compare/0.3.6...0.3.7) (2026-07-01)
+
+
+### Features
+
+* **release:** Add digital signature to Toolbox binaries ([mcp-toolbox#​3528](https://redirect.github.com/googleapis/mcp-toolbox/issues/3528)) ([3f0f0af](https://redirect.github.com/googleapis/mcp-toolbox/commit/3f0f0af29007929b01e95ee2caef4fd2015d5f12)) ([4c78941](https://github.com/gemini-cli-extensions/looker/commit/4c789418c258ed4159afc2c70f0d0934af918ea1))
+* **tools/looker:** Support complex filter\_expression parameter in queries ([mcp-toolbox#​3494](https://redirect.github.com/googleapis/mcp-toolbox/issues/3494)) ([997fb8c](https://redirect.github.com/googleapis/mcp-toolbox/commit/997fb8c39a4cb60173bcc8543118057e77e0fce4)) ([4c78941](https://github.com/gemini-cli-extensions/looker/commit/4c789418c258ed4159afc2c70f0d0934af918ea1))
+* **tools/looker:** Support dynamic\_fields parameter in queries ([mcp-toolbox#​3507](https://redirect.github.com/googleapis/mcp-toolbox/issues/3507)) ([cd22b89](https://redirect.github.com/googleapis/mcp-toolbox/commit/cd22b893573f87c0d5406490b71ddf317a07dc7b)) ([4c78941](https://github.com/gemini-cli-extensions/looker/commit/4c789418c258ed4159afc2c70f0d0934af918ea1))
+* Support MCP 2026 draft specs ([mcp-toolbox#​3544](https://redirect.github.com/googleapis/mcp-toolbox/issues/3544)) ([d12eaa8](https://redirect.github.com/googleapis/mcp-toolbox/commit/d12eaa856bad70b49ba2b7b9f2882cffbf81220f)) ([4c78941](https://github.com/gemini-cli-extensions/looker/commit/4c789418c258ed4159afc2c70f0d0934af918ea1))
+
+
+### Bug Fixes
+
+* **tool/looker-create-view-from-table:** Correct Looker API payload structure ([mcp-toolbox#​3515](https://redirect.github.com/googleapis/mcp-toolbox/issues/3515)) ([18c539c](https://redirect.github.com/googleapis/mcp-toolbox/commit/18c539c5935c2a496e7e5da68241b4307d8f3e6e)) ([4c78941](https://github.com/gemini-cli-extensions/looker/commit/4c789418c258ed4159afc2c70f0d0934af918ea1))
+* **tools/looker-conversational-analytics:** Validate explore\_references shape instead of panicking ([mcp-toolbox#​3531](https://redirect.github.com/googleapis/mcp-toolbox/issues/3531)) ([b67419d](https://redirect.github.com/googleapis/mcp-toolbox/commit/b67419d34bfc437b6eace5abaaf02ae1339d83ee)) ([4c78941](https://github.com/gemini-cli-extensions/looker/commit/4c789418c258ed4159afc2c70f0d0934af918ea1))
+
 ## [0.3.6](https://github.com/gemini-cli-extensions/looker/compare/0.3.5...0.3.6) (2026-06-22)
 
 

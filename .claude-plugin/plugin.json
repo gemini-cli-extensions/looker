@@ -1,6 +1,6 @@
 {
   "name": "looker",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Connect to Looker and interact with your data using LookML.",
   "author": {
     "name": "Google LLC",
