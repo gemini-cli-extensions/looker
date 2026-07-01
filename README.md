@@ -115,28 +115,16 @@ _(Tip: Antigravity 2.0 automatically discovers skills in these directories at th
 
 #### Antigravity CLI
 
-**1. Clone the Repo:**
+You can install plugins directly from a remote GitHub repository.
+
+**1. Install the plugin:**
 
 ```bash
-git clone --branch 0.3.6 https://github.com/gemini-cli-extensions/looker.git
+agy plugins install https://github.com/gemini-cli-extensions/looker
 ```
 
-**2. Install the skills:**
-
-Choose a location for the skills:
-- **Global (all workspaces):** `~/.gemini/antigravity-cli/skills/`
-- **Workspace-specific:** `<workspace-root>/.agents/skills/`
-
-Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
-
-```bash
-cp -R looker/skills/* ~/.gemini/antigravity-cli/skills/
-```
-
-**3. Set env vars:**
+**2. Set env vars:**
 Set your environment vars as described in the [configuration section](#configuration).
-
-_(Tip: Antigravity CLI automatically discovers skills in these directories at the start of a session. You can verify they are active by running the `/skills` command in your active session.)_
 
 </details>
 
