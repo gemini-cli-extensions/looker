@@ -85,7 +85,7 @@ If you previously installed this extension with <code>gemini extensions install<
     <pre><code class="language-bash">agy plugin import gemini</code></pre>
   </li>
 </ul>
-See <a href="https://antigravity.google/docs/gcli-migration">Migrating from Gemini CLI</a> for details on plugins, context files (<code>GEMINI.md</code> / <code>AGENTS.md</code>), and MCP server config differences.
+See <a href="https://antigravity.google/docs/cli/gcli-migration#migrating-from-gemini-cli">Migrating from Gemini CLI</a> for details on plugins, context files (<code>GEMINI.md</code> / <code>AGENTS.md</code>), and MCP server config differences.
 </blockquote>
 
 #### Antigravity 2.0 (IDE)
