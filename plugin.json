@@ -1,4 +1,5 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "looker",
   "version": "0.3.8",
   "description": "Connect to Looker and interact with your data using LookML.",
@@ -7,7 +8,12 @@
     "email": "data-cloud-ai-integrations@google.com"
   },
   "homepage": "https://cloud.google.com/looker",
-  "license": "Apache-2.0",
   "repository": "https://github.com/gemini-cli-extensions/looker",
-  "skills": "./skills/"
+  "license": "Apache-2.0",
+  "keywords": [
+    "looker",
+    "lookml",
+    "bi",
+    "data-analytics"
+  ]
 }
