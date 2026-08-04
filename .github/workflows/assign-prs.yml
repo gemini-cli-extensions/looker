@@ -15,7 +15,7 @@
 name: PR assignment
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, edited, reopened]
 
 jobs:
@@ -28,6 +28,6 @@ jobs:
       - name: "Auto-assign PR"
         uses: pozil/auto-assign-issue@af6beea6bdf1e8eb373f061c5bc168681fc6d011 # v4.0.1
         with:
-          assignees: minhaz,davidtamaki,drstrangelooker,LukaFontanilla,marcjwo,chrissieacodes,ipraveen9
+          assignees: minhaz,davidtamaki,drstrangelooker,chrissieacodes,haengeunc
           numOfAssignee: 1
           abortIfPreviousAssignees: true
