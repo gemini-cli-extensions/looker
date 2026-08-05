@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.10](https://github.com/gemini-cli-extensions/looker/compare/0.3.9...0.3.10) (2026-08-05)
+
+
+### Features
+
+* **plugin:** support agent plugin spec ([#158](https://github.com/gemini-cli-extensions/looker/issues/158)) ([28e53e6](https://github.com/gemini-cli-extensions/looker/commit/28e53e6da4e91f84d8a9cccf46eae638c50a727e))
+
 ## [0.3.9](https://github.com/gemini-cli-extensions/looker/compare/0.3.8...0.3.9) (2026-08-04)
 
 

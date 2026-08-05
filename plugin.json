@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "looker",
-  "version": "0.3.8",
+  "version": "0.3.10",
   "description": "Connect to Looker and interact with your data using LookML.",
   "author": {
     "name": "Google LLC",
