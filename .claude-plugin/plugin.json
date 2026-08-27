@@ -7,7 +7,90 @@
     "email": "data-cloud-ai-integrations@google.com"
   },
   "homepage": "https://cloud.google.com/looker",
-  "license": "Apache-2.0",
   "repository": "https://github.com/gemini-cli-extensions/looker",
-  "skills": "./skills/"
+  "license": "Apache-2.0",
+  "userConfig": {
+    "looker_base_url": {
+      "title": "Base URL",
+      "description": "URL of the Looker instance",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_client_id": {
+      "title": "Client ID",
+      "description": "Client ID of the Looker API",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_client_secret": {
+      "title": "Client Secret",
+      "description": "Client Secret of the Looker API",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_verify_ssl": {
+      "title": "Verify SSL",
+      "description": "(Optional) Boolean to verify SSL certificates",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_show_hidden_models": {
+      "title": "Show Hidden Models",
+      "description": "(Optional) Boolean to show hidden models",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_show_hidden_explores": {
+      "title": "Show Hidden Explores",
+      "description": "(Optional) Boolean to show hidden explores",
+      "type": "string",
+      "sensitive": false
+    },
+    "looker_show_hidden_fields": {
+      "title": "Show Hidden Fields",
+      "description": "(Optional) Boolean to show hidden fields",
+      "type": "string",
+      "sensitive": false
+    }
+  },
+  "mcpServers": {
+    "looker": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.9.0",
+        "--prebuilt",
+        "looker",
+        "--stdio"
+      ],
+      "env": {
+        "LOOKER_BASE_URL": "${user_config.looker_base_url}",
+        "LOOKER_CLIENT_ID": "${user_config.looker_client_id}",
+        "LOOKER_CLIENT_SECRET": "${user_config.looker_client_secret}",
+        "LOOKER_VERIFY_SSL": "${user_config.looker_verify_ssl}",
+        "LOOKER_SHOW_HIDDEN_MODELS": "${user_config.looker_show_hidden_models}",
+        "LOOKER_SHOW_HIDDEN_EXPLORES": "${user_config.looker_show_hidden_explores}",
+        "LOOKER_SHOW_HIDDEN_FIELDS": "${user_config.looker_show_hidden_fields}"
+      }
+    },
+    "looker-dev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.9.0",
+        "--prebuilt",
+        "looker-dev",
+        "--stdio"
+      ],
+      "env": {
+        "LOOKER_BASE_URL": "${user_config.looker_base_url}",
+        "LOOKER_CLIENT_ID": "${user_config.looker_client_id}",
+        "LOOKER_CLIENT_SECRET": "${user_config.looker_client_secret}",
+        "LOOKER_VERIFY_SSL": "${user_config.looker_verify_ssl}",
+        "LOOKER_SHOW_HIDDEN_MODELS": "${user_config.looker_show_hidden_models}",
+        "LOOKER_SHOW_HIDDEN_EXPLORES": "${user_config.looker_show_hidden_explores}",
+        "LOOKER_SHOW_HIDDEN_FIELDS": "${user_config.looker_show_hidden_fields}"
+      }
+    }
+  }
 }

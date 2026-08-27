@@ -1,9 +1,9 @@
-# Looker Agent Skills
+# Looker
 
 > [!NOTE]
 > Currently in beta (pre-v1.0), and may see breaking changes until the first stable release (v1.0).
 
-This repository provides a set of agent skills to interact with [Looker](https://cloud.google.com/looker). These skills can be used with various AI agents, including [Antigravity](https://antigravity.google/), [Claude Code](https://claude.com/product/claude-code) and [Codex](https://developers.openai.com/codex), to explore data, manage dashboards, and develop LookML using natural language prompts.
+This repository packages [MCP Toolbox](https://github.com/googleapis/mcp-toolbox)'s prebuilt `looker` server as a plugin/extension to interact with [Looker](https://cloud.google.com/looker). It can be used with various AI agents, including [Antigravity](https://antigravity.google/), [Claude Code](https://claude.com/product/claude-code) and [Codex](https://developers.openai.com/codex), to explore data, manage dashboards, and develop LookML using natural language prompts.
 
 > [!IMPORTANT]
 > **We Want Your Feedback!**
@@ -14,7 +14,7 @@ This repository provides a set of agent skills to interact with [Looker](https:/
 
 ## Table of Contents
 
-- [Why Use Looker Agent Skills?](#why-use-looker-agent-skills)
+- [Why Use Looker?](#why-use-looker)
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
   - [Configuration](#configuration)
@@ -22,13 +22,13 @@ This repository provides a set of agent skills to interact with [Looker](https:/
     - [Antigravity](#antigravity)
     - [Claude Code](#claude-code)
     - [Codex](#codex)
-- [Installing using open agent skills tool](#installing-using-open-agent-skills-tool)
 - [Installing via a compatible Agent Plugins client](#installing-via-a-compatible-agent-plugins-client)
 - [Usage Examples](#usage-examples)
-- [Supported Skills](#supported-skills)
+- [Available Tools](#available-tools)
+- [Generating Skills Instead](#generating-skills-instead)
 - [Troubleshooting](#troubleshooting)
 
-## Why Use Looker Agent Skills?
+## Why Use Looker?
 
 - **Seamless Workflow:** Integrates seamlessly into your AI agent's environment. No need to constantly switch contexts for common Looker tasks.
 - **Natural Language Queries:** Stop wrestling with complex UI or LookML. Explore data and create content by describing what you want in plain English.
@@ -63,7 +63,7 @@ Please keep these env vars handy during the installation process:
 
 ### Installation & Usage
 
-To start interacting with Looker, install the skills for your preferred AI agent, then launch the agent and use natural language to ask questions or perform tasks.
+To start interacting with your database, install the extension for your preferred AI agent, then launch the agent and use natural language to ask questions or perform tasks.
 
 For the latest version, check the [releases page][releases].
 
@@ -75,8 +75,8 @@ For the latest version, check the [releases page][releases].
 <summary id="antigravity">Antigravity</summary>
 
 You can use either of these two agents for Antigravity:
-- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.3.10** or higher
-- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.3.10** or higher.
+- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v1.6.0** or higher
+- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v2.0.0** or higher.
 
 <blockquote>
 💡 <strong>Tip — Migrating from Gemini CLI?</strong><br>
@@ -87,43 +87,26 @@ If you previously installed this extension with <code>gemini extensions install<
     <pre><code class="language-bash">agy plugin import gemini</code></pre>
   </li>
 </ul>
-See <a href="https://antigravity.google/docs/cli/gcli-migration#migrating-from-gemini-cli">Migrating from Gemini CLI</a> for details on plugins, context files (<code>GEMINI.md</code> / <code>AGENTS.md</code>), and MCP server config differences.
+See <a href="https://antigravity.google/docs/gcli-migration">Migrating from Gemini CLI</a> for details on plugins, context files (<code>GEMINI.md</code> / <code>AGENTS.md</code>), and MCP server config differences.
 </blockquote>
 
 #### Antigravity 2.0 (IDE)
 
-**1. Clone the Repo:**
+**1. Install the plugin:**
+
+Install the plugin directly from the remote GitHub repository:
 
 ```bash
-git clone --branch 0.3.10 https://github.com/gemini-cli-extensions/looker.git
+agy plugin install https://github.com/gemini-cli-extensions/looker
 ```
 
-**2. Install the skills:**
-
-Choose a location for the skills:
-- **Global (all workspaces):** `~/.gemini/antigravity/skills/`
-- **Workspace-specific:** `<workspace-root>/.agents/skills/`
-
-Copy the skill folders from the cloned repository's `skills/` directory to your chosen location:
-
-```bash
-cp -R looker/skills/* ~/.gemini/antigravity/skills/
-```
-
-**3. Set env vars:**
+**2. Set env vars:**
 Set your environment vars as described in the [configuration section](#configuration).
 
-_(Tip: Antigravity 2.0 automatically discovers skills in these directories at the start of a session. You can verify they are active by running the `/skills` command in your active session.)_
+_(Tip: You can verify the MCP server is active by running the `/mcp` command in your active session.)_
 
 #### Antigravity CLI
 
-**1. Clone the Repo:**
-
-```bash
-git clone --branch 0.3.10 https://github.com/gemini-cli-extensions/looker.git
-```
-
-**2. Install the skills:**
 You can install plugins directly from a remote GitHub repository.
 
 **1. Install the plugin:**
@@ -155,8 +138,7 @@ claude
 /plugin install looker@claude-plugins-official
 ```
 
-_(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)_
-
+_(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or `/reload-plugins` if you just installed it.)
 </details>
 
 <details>
@@ -166,7 +148,6 @@ _(Tip: Run `/plugin list` inside Claude Code to verify the plugin is active, or 
 
 ```bash
 codex plugin marketplace add GoogleCloudPlatform/data-agent-kit
-
 ```
 
 **2. Install the plugin:**
@@ -185,23 +166,7 @@ codex plugin marketplace upgrade data-agent-kit
 
 </details>
 
-## Installing using [open agent skills tool](https://github.com/vercel-labs/skills)
-
-You can install skills using the `npx skills` command.
-
-**1. Install the skills:**
-
-Run the following command in your terminal to automatically download and register the skills:
-
-```bash
-npx skills add https://github.com/gemini-cli-extensions/looker/tree/0.3.10
-```
-
-For detailed info check out the [Skills npm package](https://www.npmjs.com/package/skills).
-
-**2. Set env vars:**
-Set your environment vars as described in the [configuration section](#configuration).
-
+## Installing via a compatible Agent Plugins client
 ## Installing via a compatible Agent Plugins client
 
 This repository is a valid [Agent Plugins](https://github.com/agentplugins/agent-plugins-spec) (v1) plugin. Any [Agent Plugins–compatible client](https://agent-plugins.org/compatible-clients) can install it directly using its own built-in plugin command — no extra tooling required — by pointing at this repository:
@@ -231,12 +196,38 @@ Interact with Looker using natural language:
   - "Create a new view for the 'users' table in the 'e-commerce' project."
   - "Add a new measure 'total_revenue' to the 'orders' view."
 
-## Supported Skills
+## Available Tools
 
-The following skills are available in this repository:
+The tools come from MCP Toolbox's prebuilt `looker` server, grouped into toolsets:
 
-- [Looker](./skills/looker/SKILL.md) - These skills are designed for data discovery and business intelligence.
-- [Looker Development](./skills/looker-dev/SKILL.md) - These skills are built for LookML developers, data engineers, and administrators who manage the backbone of Looker.
+- **looker_tools** - These skills are designed for data discovery and business intelligence.
+
+For the full, up-to-date list, see the [`looker` prebuilt config](https://github.com/googleapis/mcp-toolbox/blob/main/internal/prebuiltconfigs/tools/looker.yaml)
+in the MCP Toolbox repository.
+
+## Generating Skills Instead
+
+The tool-backed skills this plugin used to ship were generated from the same prebuilt
+toolsets. If your agent lacks deferred tool loading, or you prefer skills, regenerate
+them with the script in this repository:
+
+```bash
+VERSION=<toolbox version> ./.github/scripts/generate_skills.sh
+```
+
+Use the toolbox version pinned in [`mcp.json`](./mcp.json). A single toolset, without
+the script:
+
+```bash
+npx @toolbox-sdk/server@<toolbox version> --prebuilt looker skills-generate \
+  --name "<skill name>" \
+  --toolset "<toolset>" \
+  --description "<what it is for>"
+```
+
+The generated scripts call the toolbox through `npx`, so no binary download is needed.
+See [Generate Agent Skills](https://github.com/googleapis/mcp-toolbox#generate-agent-skills)
+in the MCP Toolbox repository.
 
 ## Troubleshooting
 

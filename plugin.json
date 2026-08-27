@@ -15,5 +15,64 @@
     "lookml",
     "bi",
     "data-analytics"
-  ]
+  ],
+  "extensions": {
+    "com.google.cloud.data.agent-plugins": {
+      "config": [
+        {
+          "key": "LOOKER_BASE_URL",
+          "title": "Base URL",
+          "description": "URL of the Looker instance"
+        },
+        {
+          "key": "LOOKER_CLIENT_ID",
+          "title": "Client ID",
+          "description": "Client ID of the Looker API"
+        },
+        {
+          "key": "LOOKER_CLIENT_SECRET",
+          "title": "Client Secret",
+          "description": "Client Secret of the Looker API"
+        },
+        {
+          "key": "LOOKER_VERIFY_SSL",
+          "title": "Verify SSL",
+          "description": "(Optional) Boolean to verify SSL certificates"
+        },
+        {
+          "key": "LOOKER_SHOW_HIDDEN_MODELS",
+          "title": "Show Hidden Models",
+          "description": "(Optional) Boolean to show hidden models"
+        },
+        {
+          "key": "LOOKER_SHOW_HIDDEN_EXPLORES",
+          "title": "Show Hidden Explores",
+          "description": "(Optional) Boolean to show hidden explores"
+        },
+        {
+          "key": "LOOKER_SHOW_HIDDEN_FIELDS",
+          "title": "Show Hidden Fields",
+          "description": "(Optional) Boolean to show hidden fields"
+        }
+      ],
+      "gemini": {
+        "contextFileName": "LOOKER.md"
+      },
+      "codex": {
+        "interface": {
+          "displayName": "Looker",
+          "shortDescription": "Explore data and manage Looker content.",
+          "developerName": "Google LLC",
+          "category": "Data Analytics",
+          "capabilities": [
+            "Read",
+            "Write"
+          ],
+          "defaultPrompt": [
+            "You are a highly skilled Looker data analyst. Your purpose is to help the analyst find data in Looker, answer the analyst's questions, and help build content like dashboards and saved looks."
+          ]
+        }
+      }
+    }
+  }
 }

@@ -1,7 +1,29 @@
 {
   "name": "looker",
   "version": "0.3.10",
-  "description": "Connect to Looker",
+  "description": "Connect to Looker and interact with your data using LookML.",
+  "mcpServers": {
+    "looker": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.9.0",
+        "--prebuilt",
+        "looker",
+        "--stdio"
+      ]
+    },
+    "looker-dev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.9.0",
+        "--prebuilt",
+        "looker-dev",
+        "--stdio"
+      ]
+    }
+  },
   "contextFileName": "LOOKER.md",
   "settings": [
     {
