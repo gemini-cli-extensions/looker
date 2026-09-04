@@ -5,7 +5,7 @@
     "email": "data-cloud-ai-integrations@google.com"
   },
   "metadata": {
-    "description": "Agent skills for Looker to explore data, manage dashboards, and develop LookML."
+    "description": "Connect to Looker and interact with your data using LookML."
   },
   "plugins": [
     {
