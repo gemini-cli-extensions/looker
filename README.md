@@ -75,8 +75,8 @@ For the latest version, check the [releases page][releases].
 <summary id="antigravity">Antigravity</summary>
 
 You can use either of these two agents for Antigravity:
-- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v1.6.0** or higher
-- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v2.0.0** or higher.
+- [Antigravity CLI](https://github.com/google-gemini/gemini-cli) version **v0.3.11** or higher
+- [Antigravity 2.0](https://antigravity.google/product/antigravity-2) version **v0.3.11** or higher.
 
 <blockquote>
 💡 <strong>Tip — Migrating from Gemini CLI?</strong><br>
