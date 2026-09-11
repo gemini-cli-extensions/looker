@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "looker": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.9.0",
+        "--prebuilt",
+        "looker",
+        "--stdio"
+      ],
+      "env_vars": [
+        "LOOKER_BASE_URL",
+        "LOOKER_CLIENT_ID",
+        "LOOKER_CLIENT_SECRET",
+        "LOOKER_VERIFY_SSL",
+        "LOOKER_SHOW_HIDDEN_MODELS",
+        "LOOKER_SHOW_HIDDEN_EXPLORES",
+        "LOOKER_SHOW_HIDDEN_FIELDS"
+      ]
+    },
+    "looker-dev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server@1.9.0",
+        "--prebuilt",
+        "looker-dev",
+        "--stdio"
+      ],
+      "env_vars": [
+        "LOOKER_BASE_URL",
+        "LOOKER_CLIENT_ID",
+        "LOOKER_CLIENT_SECRET",
+        "LOOKER_VERIFY_SSL",
+        "LOOKER_SHOW_HIDDEN_MODELS",
+        "LOOKER_SHOW_HIDDEN_EXPLORES",
+        "LOOKER_SHOW_HIDDEN_FIELDS"
+      ]
+    }
+  }
+}

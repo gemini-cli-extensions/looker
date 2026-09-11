@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.11](https://github.com/gemini-cli-extensions/looker/compare/0.3.10...0.3.11) (2026-09-05)
+
+
+### Features
+
+* **plugin:** migrate from generated skills to the prebuilt MCP server ([#164](https://github.com/gemini-cli-extensions/looker/issues/164)) ([4a8edc0](https://github.com/gemini-cli-extensions/looker/commit/4a8edc0912897a3bc9e9edfb85e9ec4914f38182))
+
 ## [0.3.10](https://github.com/gemini-cli-extensions/looker/compare/0.3.9...0.3.10) (2026-08-05)
 
 
