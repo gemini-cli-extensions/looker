@@ -18,6 +18,9 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
   license-check:
     name: 'License Header Check'
